@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 03/08/2017, 10:05:35
-    Author     : lab3aluno
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

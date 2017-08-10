@@ -1,10 +1,5 @@
-<%-- 
-    Document   : menu
-    Created on : 10/08/2017, 10:40:57
-    Author     : Vitfl
---%>
-
 <%@page import="br.com.fatec.bean.Usuario"%>
+<%@page import="br.com.fatec.controler.UsuarioControler"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -16,7 +11,11 @@
     usu.setLogin(login);
     usu.setSenha(senha);
     
+    UsuarioControler usucont = new UsuarioControler();
+    
+    usu = usucont.validausuario(usu);
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,5 +25,7 @@
     <body>
         <h1> Login = <%=usu.getLogin()%>;</h1><br>
         <h1> Senha = <%=usu.getSenha()%>;</h1>
+        <h1> Status = <%=usu.getStatus()%>;</h1>
+        <h1> Tipo = <%=usu.getTipo()%>;</h1>
     </body>
 </html>
