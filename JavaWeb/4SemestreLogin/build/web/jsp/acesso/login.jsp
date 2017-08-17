@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login -Sistema</title>
+        <title>Login - Sistema</title>
     </head>
     <body>
         <form name="login" action="menu.jsp" method="post">

@@ -6,7 +6,7 @@
     String login = request.getParameter("login");
     String senha = request.getParameter("senha");
             
-    Usuario usu = new Usuario();
+    Usuario usu = new Usuario(0,login,senha,"","");
     
     usu.setLogin(login);
     usu.setSenha(senha);
@@ -24,8 +24,9 @@
     </head>
     <body>
         <h1> Login = <%=usu.getLogin()%>;</h1><br>
-        <h1> Senha = <%=usu.getSenha()%>;</h1>
-        <h1> Status = <%=usu.getStatus()%>;</h1>
-        <h1> Tipo = <%=usu.getTipo()%>;</h1>
+        <h1> Senha = <%=usu.getSenha()%>;</h1><br>
+        <h1> Status = <%=usu.getStatus()%>;</h1><br>
+        <h1> Tipo = <%=usu.getTipo()%>;</h1><br>
+        <a href="../usuario/inserirUsuario.jsp"> Inserir Usuário </a>
     </body>
 </html>
