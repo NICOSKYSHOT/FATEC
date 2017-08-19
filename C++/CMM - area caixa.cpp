@@ -20,7 +20,7 @@ int main(){
 	
 	area = c*l*a;
 	
-	cout << "Area da caixa: " << area <<endl;
+	cout << "Area da caixa: " << area << "cm³" <<endl;
 	
 	system("PAUSE");
 	return 0;
