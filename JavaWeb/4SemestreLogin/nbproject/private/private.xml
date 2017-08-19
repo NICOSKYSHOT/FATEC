@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Vitfl/Documents/NetBeansProjects/xxx/web/index.jsp</file>
-            <file>file:/C:/Users/Vitfl/Documents/NetBeansProjects/xxx/src/java/br/com/fatec/bean/Usuario.java</file>
-            <file>file:/C:/Users/Vitfl/Documents/NetBeansProjects/xxx/src/java/br/com/fatec/controler/UsuarioControler.java</file>
-            <file>file:/C:/Users/Vitfl/Documents/NetBeansProjects/xxx/web/jsp/acesso/login.jsp</file>
-            <file>file:/C:/Users/Vitfl/Documents/NetBeansProjects/xxx/web/jsp/acesso/menu.jsp</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/src/java/br/com/fatec/bean/Usuario.java</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/web/jsp/acesso/login.jsp</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/web/jsp/usuario/validarInserirUsuario.jsp</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/web/jsp/usuario/inserirUsuario.jsp</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/web/jsp/acesso/menu.jsp</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/src/java/br/com/fatec/controler/UsuarioControler.java</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/src/java/br/fatec/db/UsuarioDao.java</file>
+            <file>file:/D:/GIT/Fatec/JavaWeb/4SemestreLogin/src/java/br/com/fatec/util/ConexaoBD.java</file>
         </group>
     </open-files>
 </project-private>
