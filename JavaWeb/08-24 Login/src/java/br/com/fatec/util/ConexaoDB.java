@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.fatec.util;
+package br.com.fatecs.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author ProfAlexandre
+ */
 public class ConexaoDB {
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url ="jdbc:mysql://localhost:3306/xxx";
             String usuario = "root";
-            String senha = "";
+            String senha = "admin";
             return DriverManager.getConnection(url,usuario,senha);
         } catch (SQLException e) {
             throw new RuntimeException(e);

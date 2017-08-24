@@ -1,6 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ 
+ * create database fatecs;
+
+ * create table fatecs.usuarios (
+   * id BIGINT NOT NULL AUTO_INCREMENT,
+   * login VARCHAR(255),
+   * senha VARCHAR(255),
+   * status VARCHAR(255),
+   * tipo VARCHAR(255),
+   * primary key (id));
+
+*/
 package br.com.fatec.db;
 
-import br.com.fatec.util.ConexaoDB;
+import br.com.fatecs.util.ConexaoDB;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,6 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 import br.com.fatec.bean.Usuario;
 
+/**
+ *
+ * @author ProfAlexandre
+ */
 public class UsuarioDao {
 
     private final Connection c;
@@ -17,6 +37,7 @@ public class UsuarioDao {
         this.c = new ConexaoDB().getConnection();
     }
     
+    /*
     public Usuario busca(Usuario usu) throws SQLException{
         String sql = "select * from usuarios WHERE id = ?";
         
