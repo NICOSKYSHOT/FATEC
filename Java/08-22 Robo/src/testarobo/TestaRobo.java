@@ -2,6 +2,8 @@ package testarobo;
 import testarobo.Robo;
 import javax.swing.JOptionPane;
 
+//Vitor Francisco Lamounier
+
 public class TestaRobo {
 
 	public static void main(String[] args) {
