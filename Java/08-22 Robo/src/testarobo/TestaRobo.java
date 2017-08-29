@@ -59,6 +59,6 @@ public class TestaRobo {
 					JOptionPane.showMessageDialog(null, "Opção Inválida\nVerifique a Bateria do Robô", "ERRO", 0);
 				}
 		
-	}
+		}
 	}
 }
