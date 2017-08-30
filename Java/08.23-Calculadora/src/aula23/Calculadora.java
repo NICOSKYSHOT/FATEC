@@ -5,102 +5,102 @@ import java.awt.event.*;
 
 public class Calculadora extends Frame implements ActionListener {
 
-    Label lblNum1, lblNum2, lblResultado;
-    TextField txtNum1, txtNum2, txtResultado;
-    Button btnSom, btnSub, btnMult, btnDiv, btnClear, btnPow; 
+    Label lbln1, lbln2, lblr;
+    TextField txtN1, txtN2, txtR;
+    Button btn1, btn2, btn3, btn4, btn5, btn6; 
     
     public Calculadora() {
-        setTitle("Calculadora V1.0");
-        setSize(300,150);
+        setTitle("Calculadora");
+        setSize(500,350);
         setLocation(50,50);
-        setBackground(new Color(150, 150, 150));
+        setBackground(new Color(200, 250, 150));
+        
         setLayout(new GridLayout(3, 4));
-        lblNum1 = new Label("Num 1");
-        lblNum2 = new Label("Num 2");
-        lblResultado = new Label("Resultado");
-        txtNum1 = new TextField("Num 1");
-        txtNum2 = new TextField("Num 2");
-        txtResultado = new TextField("Resultado");
+        lbln1 = new Label("Numero 1");
+        lbln2 = new Label("Numero 2");
+        lblr = new Label("Resultado");
+        txtN1 = new TextField("Numero 1");
+        txtN2 = new TextField("Numero 2");
+        txtR = new TextField("Resultado");
         
-        btnSom = new Button("+");
-        btnSom.addActionListener(this);
-        btnMult = new Button("*");
-        btnMult.addActionListener(this);
-        btnDiv = new Button("/");
-        btnDiv.addActionListener(this);
-        btnSub = new Button("-");
-        btnSub.addActionListener(this);
-        btnPow = new Button("^");
-        btnPow.addActionListener(this);
-        btnClear = new Button("C");
-        btnClear.addActionListener(this);
+        btn1 = new Button("+");
+        btn1.addActionListener(this);
+        btn3 = new Button("*");
+        btn3.addActionListener(this);
+        btn4 = new Button("/");
+        btn4.addActionListener(this);
+        btn2 = new Button("-");
+        btn2.addActionListener(this);
+        btn6 = new Button("^");
+        btn6.addActionListener(this);
+        btn5 = new Button("C");
+        btn5.addActionListener(this);
         
-        txtNum1 = new TextField();
-        txtNum2 = new TextField();
-        txtResultado = new TextField();
-        txtResultado.setEditable(false);
+        txtN1 = new TextField();
+        txtN2 = new TextField();
+        txtR = new TextField();
+        txtR.setEditable(false);
         
-        add(lblNum1);
-        add(txtNum1);
-        add(btnSom);
-        add(btnSub);
+        add(lbln1);
+        add(txtN1);
+        add(btn1);
+        add(btn2);
         
-        add(lblNum2);
-        add(txtNum2);
-        add(btnDiv);
-        add(btnMult);
+        add(lbln2);
+        add(txtN2);
+        add(btn4);
+        add(btn3);
         
-        add(lblResultado);
-        add(txtResultado);
-        add(btnClear);
-        add(btnPow);
+        add(lblr);
+        add(txtR);
+        add(btn5);
+        add(btn6);
     }
     
     public static void main(String[] args) {
         Calculadora calc = new Calculadora();
         calc.show();
-        
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {  
-        float n1 = 0, n2 = 0, result = 0;
+        float n1 = 0, n2 = 0, r = 0;
+        
         try {
-            n1 = Float.parseFloat(txtNum1.getText());
-            n2 = Float.parseFloat(txtNum2.getText());
+            n1 = Float.parseFloat(txtN1.getText());
+            n2 = Float.parseFloat(txtN2.getText());
         } catch (NumberFormatException ex) {
-            txtResultado.setText("Erro!");
+            txtR.setText("Erro!");
         }
         
-        if(e.getSource() == btnClear) {
-            txtNum1.getText();
-            txtNum2.getText();
-            txtResultado.getText();
-            txtNum1.setText(" ");
-            txtNum2.setText(" ");
-            txtResultado.setText(" ");
+        if(e.getSource() == btn5) {
+            txtN1.getText();
+            txtN2.getText();
+            txtR.getText();
+            txtN1.setText(" ");
+            txtN2.setText(" ");
+            txtR.setText(" ");
             
-        } else if(e.getSource() == btnSom) {
-            result = n1 + n2;
-            txtResultado.getText();
-            txtResultado.setText(result+"");
-        } else if (e.getSource() == btnSub){
-            result = n1 - n2;
-            txtResultado.getText();
-            txtResultado.setText(result+"");
-        } else if (e.getSource() == btnDiv){
-            result = n1 / n2;
-            txtResultado.getText();
-            txtResultado.setText(result+"");
-        } else if (e.getSource() == btnMult){
-            result = n1 * n2;
-            txtResultado.getText();
-            txtResultado.setText(result+"");
-        } else if (e.getSource() == btnPow){
-            result = (float) Math.pow(n1, n2);
-            txtResultado.getText();
-            txtResultado.setText(result+"");
+        } else if(e.getSource() == btn1) {
+            r = n1 + n2;
+            txtR.getText();
+            txtR.setText(r + "");
+        } else if (e.getSource() == btn2){
+            r = n1 - n2;
+            txtR.getText();
+            txtR.setText(r + "");
+        } else if (e.getSource() == btn4){
+            r = n1 / n2;
+            txtR.getText();
+            txtR.setText(r + "");
+        } else if (e.getSource() == btn3){
+            r = n1 * n2;
+            txtR.getText();
+            txtR.setText(r + "");
+        } else if (e.getSource() == btn6){
+            r = (float) Math.pow(n1, n2);
+            txtR.getText();
+            txtR.setText(r + "");
         }
     }   
 }
