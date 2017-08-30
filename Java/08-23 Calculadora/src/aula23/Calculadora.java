@@ -54,27 +54,6 @@ public class Calculadora extends Frame implements ActionListener {
         add(txtResultado);
         add(btnClear);
         add(btnPow);
-        
-        System.out.println("      ,'_  \"`-.      ,-'\"\"`-.		");
-        System.out.println("     ('\"/\"-.   \\    /  ,-,.  \\		");
-        System.out.println("      `'    \\  ,-'-/    /  `-'		");
-        System.out.println("            ,-'-.      /			");
-        System.out.println("         __ (\"|\")     f			");
-        System.out.println("        (_)`-\"---.    |			");
-        System.out.println("         l   ---.     j			");
-        System.out.println("          `---'     ,'			");
-        System.out.println("              \\    f                       ");
-        System.out.println("               )   l			");
-        System.out.println("            __f _   Y			");
-        System.out.println("         ,'\",-'\"_\"  l			");
-        System.out.println("        (,,(,,,' `   Y			");
-        System.out.println("             |       l			");
-        System.out.println("             |        \\,';,		");
-        System.out.println("             l    ,    Y, ;			");
-        System.out.println("             (`._(     ),'  Philip Kaulfuss	");
-        System.out.println("              `.  `.  (			");
-        System.out.println("            ,--',--'   )			");
-        System.out.println("           (,,,(,,,---'			");
     }
     
     public static void main(String[] args) {
