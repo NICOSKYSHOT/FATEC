@@ -75,9 +75,9 @@ public class Robo2 {
 			String linha="5";
 			BufferedReader ler = new BufferedReader(new FileReader("src/arquivos/bateria.txt"));
 			while (ler.ready()) {
-				linha = ler.readLine();
-				ler.close();
+				linha = ler.readLine();	
 			}
+			ler.close();
 			return Integer.parseInt(linha);
 		}
 }
