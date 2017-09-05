@@ -1,17 +1,25 @@
 package testarobo2;
 import testarobo2.Robo2;
 import javax.swing.JOptionPane;
-import java.io.FileWriter;  
-import java.io.File;  
 import java.io.IOException;  
 
 //Vitor Francisco Lamounier
 
 public class TestaRobo2 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Robo2 r2 = new Robo2 ("V17-L4M0","23/08/2017",5);
+		
+		int opb=0;
+		opb = Integer.parseInt(JOptionPane.showInputDialog(null, "Deseja carregar bateria salva no arquivo de texto?\nSIM = 1\nNÃO = Qualquer número inteiro"));
+		
+		if(opb==1) { 
+		    r2.setBateria(r2.obterBateria());
+			JOptionPane.showMessageDialog(null, "Bateria Carregada de bateria.txt", "Atenção", 2);
+		}else {
+			JOptionPane.showMessageDialog(null, "Utilizando bateria padrão (5)", "Atenção", 2);
+		}
 		
 		int op=0;
 		double n1=0, n2=0;
@@ -56,7 +64,7 @@ public class TestaRobo2 {
 					}else {
 						JOptionPane.showMessageDialog(null, "Opção Inválida", "ERRO", 0);
 					}
-					
+ 
 					r2.setBateria(r2.getBateria()-1);
 					JOptionPane.showMessageDialog(null, "Bateria Gasta -1", "Atenção", 2);
 				
@@ -65,20 +73,10 @@ public class TestaRobo2 {
 					JOptionPane.showMessageDialog(null, "Bateria Carregada +1", "Atenção", 2);
 					r2.setBateria(r2.getBateria()+1);
 				}else if(op==7){
-					
-					 FileWriter bateria;  
-			          
-				        try {  
-				            bateria = new FileWriter(new File("logcontas.txt"));  
-				            bateria.write("Histórico de Operações: | " + logc);  
-				            bateria.close();  
-				        } catch (IOException e) {  
-				            e.printStackTrace();  
-				        } catch (Exception e) {  
-				            e.printStackTrace();  
-				        }  
-				        
+					r2.gravarLog(logc);
+					r2.gravarBateria();
 					System.exit(0);
+					
 				}else {
 					JOptionPane.showMessageDialog(null, "Opção Inválida\nVerifique a Bateria do Robô", "ERRO", 0);
 				}
