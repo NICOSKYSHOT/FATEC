@@ -1,26 +1,29 @@
 package layouts;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import layouts.LayoutPanel;
+import layouts.LayoutFlow;
+
+import javax.swing.JOptionPane;
 
 //Vitor Francisco Lamounier
 
 public class Layouts {
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		
-		for (int i=0;i<2;i++) {
-			JButton btn = new JButton("Botao");
-			btn.setSize(300,300);
-			panel.add(btn);
-		}
-		
-		frame.getContentPane().add(panel);
-		frame.setSize(450, 70);
-		frame.setVisible(true);
-	}
+		int op=0;
+		op = Integer.parseInt(JOptionPane.showInputDialog(null, "MENU" + 
+				"\n1 - Panel" + 
+				"\n2 - Flow" + 
+				"\n3 - Border" 
+				)); 
+	
+			if(op==1) {
+				LayoutPanel.Panel();
+			}else if(op==2) {
+				//LayoutFlow.Flow();
+			}else if(op==3) {
+				//LayoutBorder();
+			}
 
+	}
 }
