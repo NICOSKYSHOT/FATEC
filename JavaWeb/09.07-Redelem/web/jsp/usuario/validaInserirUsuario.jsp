@@ -1,29 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@page import="br.com.redelem.bean.Usuario"%>
 <%@page import="br.com.redelem.controler.UsuarioControler"%>
 
 <%
-    String login = request.getParameter("login");
-    String senha = request.getParameter("senha");
-    
-    Usuario usu = new Usuario(0,"",login,senha,"","");
+    String nome = request.getParameter("NOME");
+    String login = request.getParameter("LOGIN");
+    String senha = request.getParameter("SENHA");
+    String status = request.getParameter("STATUS");
+    String tipo = request.getParameter("TIPO");
+    Usuario usu = new Usuario(0,login,nome,senha,status,tipo);
     UsuarioControler usucont = new UsuarioControler();
-    
-    usu = usucont.validaUsuario(usu);
-    session.setAttribute("UsuarioLogado",usu);
+    usu = usucont.inserirUsuario(usu);
 %>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu - Rede Lembranças</title>
+        <title>Confirmação de Cadastro</title>
     </head>
     <body>
-        <h1>Perfil Atual</h1>
+        <h1>O seguinte Usuário foi Cadastrado:</h1>
         <table border="0">
-            <tr>
+           <tr>
                 <td><b>ID:</b></td>
                 <td> <%=usu.getId()%> </td>
             </tr>    
@@ -48,10 +46,7 @@
                 <td> <%=usu.getTipo()%></td>
             </tr>
         </table>
-       
-        <h1>Opções:</h1>
-        <h2>Gerenciar Usuários</h2>
-        <a href="../usuario/consultarUsuario.jsp">Consultar (Alterar e Excluir)</a><br>
-        <a href="../usuario/inserirUsuario.jsp">Inserir novo Usuario</a>
+            
+        <a href="../acesso/login.jsp"><b>Voltar</b></a>
     </body>
 </html>

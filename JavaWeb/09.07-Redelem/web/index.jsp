@@ -7,6 +7,8 @@
     </head>
     <body>
         <h1>Bem vindo ao protótipo JavaWeb da Rede Lembranças </h1>
-        <a href="jsp/acesso/login.jsp">LOGIN</a>
+        <a href="jsp/acesso/login.jsp">LOGIN</a><br>
+        <a href="jsp/usuario/inserirUsuario.jsp">CADASTRO</a><br><br>
+        <a href="jsp/dbinfo.jsp">DB INFO</a>
     </body>
 </html>

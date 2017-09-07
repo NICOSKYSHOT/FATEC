@@ -24,15 +24,13 @@ public class UsuarioControler {
         usu = usuDao.exclui(usu);
         return usu;
     }
-    /*
+   
     public Usuario buscarUsuario(Usuario usu) throws SQLException, ClassNotFoundException {
         UsuarioDao usuDao = new UsuarioDao();
         usu = usuDao.busca(usu);
-        PessoaControler pesCont = new PessoaControler();
-        usu.setPes(pesCont.buscaPessoaFisica());
         return usu;
     }
-    */
+    
     public Usuario alterarUsuario(Usuario usu) throws SQLException, ClassNotFoundException {
         UsuarioDao usuDao = new UsuarioDao();
         usu = usuDao.altera(usu);

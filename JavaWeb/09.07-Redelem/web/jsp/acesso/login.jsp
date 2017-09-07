@@ -6,9 +6,21 @@
     </head>
     <body>
         <form name="login" action="menu.jsp" method="post">
-            Login: <input type="text" name="login" value="">
-            Senha: <input type="password" name="senha" value="">
-            <input type="submit" name="Enviar" value="ENTRAR">
+            <table border="0">
+                <tr>
+                    <td><b>Usuario:</b></td>
+                    <td><input type="text" name="login" value=""></td>
+                </tr>
+                <tr>
+                    <td><b>Senha:</b></td>
+                    <td> <input type="password" name="senha" value=""> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="Enviar" value="ENTRAR"></td>
+                </tr>
+            </table>
         </form>
+        <a href="../../index.jsp">Voltar</a>
     </body>
 </html>
