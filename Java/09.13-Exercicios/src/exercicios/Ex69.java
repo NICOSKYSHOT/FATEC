@@ -13,7 +13,7 @@ public class Ex69 {
 		
 		for (i =1; i<=n;i++) {
 			e = e*i;
-			t = t*e;
+			t = t+e;
 			JOptionPane.showMessageDialog(null, "Fatorial: " + i + "\nResultado: "+ e);
 		}
 		

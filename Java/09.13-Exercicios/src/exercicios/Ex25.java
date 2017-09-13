@@ -20,7 +20,7 @@ public class Ex25 {
 		
 		String op = JOptionPane.showInputDialog(null,"Deseja fazer o exercicio novamente?:\ns ou n (minusculo)");
 		
-		if(op.equals("n")) {
+		if(op.equals("s")) {
 			x();
 		}
 		

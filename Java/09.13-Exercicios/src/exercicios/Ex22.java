@@ -27,7 +27,7 @@ public class Ex22 {
 		
 		String op = JOptionPane.showInputDialog(null,"Deseja inserir mais produtos?:\ns ou n (minusculo)");
 	
-		if(op.equals("n")) {
+		if(op.equals("s")) {
 			x();
 		}
 		

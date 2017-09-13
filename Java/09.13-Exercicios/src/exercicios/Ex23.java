@@ -20,7 +20,7 @@ public class Ex23 {
 		
 		String op = JOptionPane.showInputDialog(null,"Deseja inserir mais um numero?:\ns ou n (minusculo)");
 		
-		if(op.equals("n")) {
+		if(op.equals("s")) {
 			x();
 		}
 	}
