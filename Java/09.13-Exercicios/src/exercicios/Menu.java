@@ -11,10 +11,10 @@ public class Menu {
 			op = Integer.parseInt(JOptionPane.showInputDialog(null, "ESCOLHA O EXERCICIO" + 
 					"\n21 - Serviço militar" + 
 					"\n22 - Lucro ou prejuizo" + 
-					"\n23" + 
-					"\n24" + 
-					"\n25" + 
-					"\n69" + 
+					"\n23 - 80, 25 ou 40" + 
+					"\n24 - positivo ou negativo" + 
+					"\n25 - numero maior" + 
+					"\n69 - fatorial" + 
 					"\n0 - Sair")); 
 		
 			switch (op) {
