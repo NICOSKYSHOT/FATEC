@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;  
 
+//Vitor Francisco Lamounier
+
 public class Robo2 {
 
 		private String nome;
@@ -66,7 +68,8 @@ public class Robo2 {
 		}
 		
 		public void gravarBateria() throws IOException{
-			int bat = this.getBateria();
+			String bat;
+			bat = Integer.toString(this.getBateria());
 			FileWriter bateria = new FileWriter("src/arquivos/bateria.txt");
 			bateria.write(bat);
 			bateria.close();
