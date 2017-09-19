@@ -5,6 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Rede Lembranças</title>
     </head>
+    
+    <style type="tex/css">
+        a{
+            text-decoration: none;
+        }
+    </style>
+    
     <body>
         <h1>Bem vindo ao protótipo JavaWeb da Rede Lembranças </h1>
         <a href="jsp/acesso/login.jsp">LOGIN</a><br>
