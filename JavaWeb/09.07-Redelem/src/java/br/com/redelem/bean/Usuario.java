@@ -2,77 +2,68 @@ package br.com.redelem.bean;
 
 public class Usuario {
     
-    private int id;
-    private String nome;
-    private String login;
-    private String senha;
-    private String status;
-    private String tipo;
-    //private Pessoa pes;
+    private int uid;
+    private String unome;
+    private String ulogin;
+    private String usenha;
+    private String unasc;
+    private String utipo;
     
-    public Usuario (int idp, String nomep,String loginp, String senhap, String statusp, String tipop) {
-        this.id = idp;
-        this.nome = nomep;
-        this.login = loginp;
-        this.senha = senhap;
-        this.status = statusp;
-        this.tipo = tipop;
+    public Usuario (int uidp, String unomep,String uloginp, String usenhap, String unascp, String utipop) {
+        this.uid = uidp;
+        this.unome = unomep;
+        this.ulogin = uloginp;
+        this.usenha = usenhap;
+        this.unasc = unascp;
+        this.utipo = utipop;
     }
 
-    public int getId() {
-        return id;
+    public int getUid() {
+        return uid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUnome() {
+        return unome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUnome(String unome) {
+        this.unome = unome;
     }
     
-    public String getLogin() {
-        return login;
+    public String getUlogin() {
+        return ulogin;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUlogin(String ulogin) {
+        this.ulogin = ulogin;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getUsenha() {
+        return usenha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setUsenha(String usenha) {
+        this.usenha = usenha;
     }
 
-    public String getStatus() {
-        return status;
+    public String getUnasc() {
+        return unasc;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setUnasc(String unasc) {
+        this.unasc = unasc;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getUtipo() {
+        return utipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setUtipo(String utipo) {
+        this.utipo = utipo;
     }
 
-    /*
-    public Pessoa getPes() {
-        return pes;
-    }
-
-    public void setPes(Pessoa pes) {
-        this.pes = pes;
-    }*/
 }

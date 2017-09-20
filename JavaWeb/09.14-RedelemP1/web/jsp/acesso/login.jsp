@@ -4,26 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login - Rede Lembranças</title>
     </head>
-    <style type="text/css">
-        body{
-            text-align: center;
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            align-content: center;
-        }
-        
-        table{
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style>
+    
     <body>
         <a href="../../index.jsp"><b>>> INDEX <<</b></a><br><br>
         <form name="login" action="menu.jsp" method="post">

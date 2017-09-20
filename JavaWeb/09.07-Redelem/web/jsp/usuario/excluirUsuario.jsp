@@ -14,10 +14,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Exclusão de Usuario</title>
     </head>
     <body>
+        <a href="../../index.jsp">INDEX</a> |
+        <a href="../acesso/login.jsp">LOGIN</a><br><br>
         <h1>Usuário Excluido! </h1>
-        <a href="consultarUsuario.jsp"><b>Voltar</b>
     </body>
 </html>

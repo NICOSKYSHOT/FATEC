@@ -3,19 +3,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
         <title>Rede Lembranças</title>
     </head>
     
-    <style type="tex/css">
-        a{
-            text-decoration: none;
-        }
-    </style>
-    
     <body>
-        <h1>Bem vindo ao protótipo JavaWeb da Rede Lembranças </h1>
-        <a href="jsp/acesso/login.jsp">LOGIN</a><br>
-        <a href="jsp/usuario/inserirUsuario.jsp">CADASTRO</a><br><br>
-        <a href="jsp/dbinfo.jsp">DB INFO</a>
+        <h1>Rede Lembranças</h1>
+        <a href="jsp/acesso/login.jsp"> >> LOGIN << </a><br><br>
+        <a href="jsp/usuario/inserirUsuario.jsp"> >> NOVA CONTA << </a><br><br>
+        <a href="jsp/dbinfo.jsp"> >> BANCO DE DADOS << </a>
     </body>
 </html>

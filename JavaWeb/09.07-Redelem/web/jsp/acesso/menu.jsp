@@ -18,40 +18,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Menu - Rede Lembranças</title>
     </head>
     <body>
-        <h1>Perfil Atual</h1>
-        <table border="0">
+        <a href="../../index.jsp"> INDEX </a> |
+        <a href="login.jsp"> LOGIN </a>
+        <br><br>
+        Opções: 
+        <br>Gerenciamento de Usuarios -> 
+        <a href="../usuario/consultarUsuario.jsp"> Consultar (Alterar e Excluir)</a> |
+        <a href="../usuario/inserirUsuario.jsp"> Cadastrar novo Usuario</a>
+   
+        <br><br>
+         <% if (!usu.getUtipo().equals("adm") && !usu.getUtipo().equals("comum")) { %>
+         <a href="../usuario/inserirUsuario.jsp">LOGADO COMO CONVIDADO (CONTA INEXISTENTE)<br>
+         CRIE UMA CONTA CLICANDO AQUI</a>
+        <% } %>
+        
+        <table border="3">
+            <h2>Perfil Atual</h2>
             <tr>
                 <td><b>ID:</b></td>
-                <td> <%=usu.getId()%> </td>
+                <td> <%=usu.getUid()%> </td>
             </tr>    
              <tr>
                 <td><b>Nome:</b></td>
-                <td> <%=usu.getNome()%></td>
+                <td> <%=usu.getUnome()%></td>
             </tr>
             <tr>
                 <td><b>Usuário:</b></td>
-                <td> <%=usu.getLogin()%> </td>
+                <td> <%=usu.getUlogin()%> </td>
             </tr>
             <tr>
                 <td><b>Senha:</b></td>
-                <td> <%=usu.getSenha()%></td>
+                <td> <%=usu.getUsenha()%></td>
             </tr>
             <tr>
-                <td><b>Status:</b></td>
-                <td> <%=usu.getStatus()%></td>
+                <td><b>Data de Nascimento:</b></td>
+                <td> <%=usu.getUnasc()%></td>
             </tr>
             <tr>
                 <td><b>Tipo:</b></td>
-                <td> <%=usu.getTipo()%></td>
+                <td> <%=usu.getUtipo()%></td>
             </tr>
         </table>
-       
-        <h1>Opções:</h1>
-        <h2>Gerenciar Usuários</h2>
-        <a href="../usuario/consultarUsuario.jsp">Consultar (Alterar e Excluir)</a><br>
-        <a href="../usuario/inserirUsuario.jsp">Inserir novo Usuario</a>
+        
     </body>
 </html>

@@ -19,34 +19,34 @@ public class UsuarioDao {
     }
     
     public Usuario busca(Usuario usu) throws SQLException{
-        String sql = "select * from usuarios WHERE id = ?";
+        String sql = "select * from usuarios WHERE uid = ?";
         
         try (
             PreparedStatement stmt = this.c.prepareStatement(sql)) {
-            stmt.setInt(1,usu.getId());
+            stmt.setInt(1,usu.getUid());
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next()) {
-                usu.setId(rs.getInt(1));
-                usu.setNome(rs.getString(2));
-                usu.setLogin(rs.getString(3));
-                usu.setSenha(rs.getString(4));
-                usu.setStatus(rs.getString(5));
-                usu.setTipo(rs.getString(6));
+                usu.setUid(rs.getInt(1));
+                usu.setUnome(rs.getString(2));
+                usu.setUlogin(rs.getString(3));
+                usu.setUsenha(rs.getString(4));
+                usu.setUnasc(rs.getString(5));
+                usu.setUtipo(rs.getString(6));
             }
         }
         return usu;
     }
     
     public Usuario altera(Usuario usu) throws SQLException{
-        String sql = "UPDATE usuarios SET nome = ?, login = ?, senha = ?, status = ?, tipo = ? WHERE id = ?";
+        String sql = "UPDATE usuarios SET unome = ?, ulogin = ?, usenha = ?, unasc = ?, utipo = ? WHERE uid = ?";
         try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1,usu.getNome());
-            stmt.setString(2,usu.getLogin());
-            stmt.setString(3,usu.getSenha());
-            stmt.setString(4,usu.getStatus());
-            stmt.setString(5,usu.getTipo());
-            stmt.setInt(6,usu.getId());
+            stmt.setString(1,usu.getUnome());
+            stmt.setString(2,usu.getUlogin());
+            stmt.setString(3,usu.getUsenha());
+            stmt.setString(4,usu.getUnasc());
+            stmt.setString(5,usu.getUtipo());
+            stmt.setInt(6,usu.getUid());
             
             stmt.execute();
         }
@@ -54,10 +54,10 @@ public class UsuarioDao {
     }
 
     public Usuario exclui(Usuario usu) throws SQLException{
-        String sql = "delete from usuarios WHERE id = ?";
+        String sql = "delete from usuarios WHERE uid = ?";
         
         try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setInt(1,usu.getId());
+            stmt.setInt(1,usu.getUid());
             
             stmt.execute();
         }
@@ -67,21 +67,21 @@ public class UsuarioDao {
     
     public Usuario validaLogin(Usuario usu) throws SQLException{
        
-        String sql = "select * from usuarios WHERE login = ? AND senha = ?";
+        String sql = "select * from usuarios WHERE ulogin = ? AND usenha = ?";
        
         try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
-            stmt.setString(1,usu.getLogin());
-            stmt.setString(2,usu.getSenha());
+            stmt.setString(1,usu.getUlogin());
+            stmt.setString(2,usu.getUsenha());
             
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next()) {
-                usu.setId(rs.getInt(1));
-                usu.setNome(rs.getString(2));
-                usu.setLogin(rs.getString(3));
-                usu.setSenha(rs.getString(4));
-                usu.setStatus(rs.getString(5));
-                usu.setTipo(rs.getString(6));
+                usu.setUid(rs.getInt(1));
+                usu.setUnome(rs.getString(2));
+                usu.setUlogin(rs.getString(3));
+                usu.setUsenha(rs.getString(4));
+                usu.setUnasc(rs.getString(5));
+                usu.setUtipo(rs.getString(6));
             }
         }
         return usu;
@@ -91,9 +91,9 @@ public class UsuarioDao {
 
         List<Usuario> usus = new ArrayList<>();
         
-        String sql = "select * from usuarios where nome like ?";
+        String sql = "select * from usuarios where unome like ?";
         try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
-            stmt.setString(1,"%" + usuEnt.getNome() + "%");      
+            stmt.setString(1,"%" + usuEnt.getUnome() + "%");      
             
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
@@ -115,14 +115,14 @@ public class UsuarioDao {
     }
     
     public Usuario inseri(Usuario usu) throws SQLException{
-        String sql = "insert into usuarios" + " (nome, login, senha, status, tipo)" + " values (?,?,?,?,?)";
+        String sql = "insert into usuarios" + " (unome, ulogin, usenha, unasc, utipo)" + " values (?,?,?,?,?)";
     
         try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1,usu.getNome());
-            stmt.setString(2,usu.getLogin());
-            stmt.setString(3,usu.getSenha());
-            stmt.setString(4,usu.getStatus());
-            stmt.setString(5,usu.getTipo());
+            stmt.setString(1,usu.getUnome());
+            stmt.setString(2,usu.getUlogin());
+            stmt.setString(3,usu.getUsenha());
+            stmt.setString(4,usu.getUnasc());
+            stmt.setString(5,usu.getUtipo());
             
             stmt.execute();
         }

@@ -6,20 +6,6 @@
         <title>Rede Lembranças</title>
     </head>
     
-    <style type="text/css">
-        body{
-            text-align: center;
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            align-content: center;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-        }
-    </style>
     
     <body>
         <h1>Rede Lembranças </h1>
