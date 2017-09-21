@@ -1,11 +1,13 @@
 package exp1;
 
+import java.text.ParseException;
+
 import javax.swing.JOptionPane;
 import menu.MenuGeral;
 
 public class Menu1 {
 
-	public static void x() {
+	public static void x() throws ParseException, Exception {
 		
 		int op=-1;
 		while (op!=0){
@@ -20,11 +22,23 @@ public class Menu1 {
 			switch (op) {
 	
 				case 1:
-					Ex1.x();
+					P1Ex1.x();
 					break;
 
 				case 2:
-					Ex2.x();
+					P1Ex2.x();
+					break;
+				
+				case 3:
+					P1Ex3.x();
+					break;
+					
+				case 4:
+					P1Ex4.x();
+					break;
+					
+				case 5:
+					P1Ex5.x();
 					break;
 					
 				case 6:

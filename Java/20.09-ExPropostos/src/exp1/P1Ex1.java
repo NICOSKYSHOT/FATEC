@@ -3,7 +3,7 @@ package exp1;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
-public class Ex1 {
+public class P1Ex1 {
 	public static void x() {
 		
 		Calendar cal = Calendar.getInstance();

@@ -18,23 +18,14 @@ USE `redelem`;
 
 -- Copiando estrutura para tabela redelem.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) DEFAULT NULL,
-  `login` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `tipo` varchar(255) DEFAULT NULL,
+  `uid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `unome` varchar(255) DEFAULT NULL,
+  `ulogin` varchar(255) DEFAULT NULL,
+  `usenha` varchar(255) DEFAULT NULL,
+  `unasc` varchar(255) DEFAULT NULL,
+  `utipo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
--- Copiando dados para a tabela redelem.usuarios: 4 rows
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`id`, `nome`, `login`, `senha`, `status`, `tipo`) VALUES
-	(1, 'Ademir', 'adm', '123', 'ativo', 'adm'),
-	(3, 'mariana', 'mari', 'uni', 'ativo', 'adm'),
-	(4, 'fredw', 'Fred', '12345', '', 'comum'),
-	(5, 'Ghoochannej', 'Caio caca', 'caiocaca', '', 'comum');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

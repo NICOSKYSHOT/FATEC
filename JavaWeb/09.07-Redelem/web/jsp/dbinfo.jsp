@@ -12,12 +12,12 @@
         <h1>Criando a tabela usuários</h1>
         
         <br>CREATE TABLE redelem.usuarios(
-        <br>id BIGINT NOT NULL AUTO_INCREMENT,
-        <br>nome VARCHAR(255),
-        <br>login VARCHAR(255),
-        <br>senha VARCHAR(255),
-        <br>status VARCHAR(255),
-        <br>tipo VARCHAR(255),
+        <br>uid BIGINT NOT NULL AUTO_INCREMENT,
+        <br>unome VARCHAR(255),
+        <br>ulogin VARCHAR(255),
+        <br>usenha VARCHAR(255),
+        <br>ustatus VARCHAR(255),
+        <br>utipo VARCHAR(255),
         <br>primary key (id));
         
         <h1>Info da Conexao</h1>
