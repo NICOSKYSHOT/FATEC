@@ -20,10 +20,12 @@
 
 <html>
     <%//@include file="../../inc/materalizeWeb.inc" %>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
     <title>Consulta Acontecimentos - Rede Lembranças</title>
-    </head>
+    
+    <style type="text/css">
+        td { text-align: center; 
+             font-family: courier}
+    </style>
     
     <body>
         <h2>Lista de ADM - Rede Lembranças</h2>
@@ -38,8 +40,6 @@
                   <th data-field="Senha">Descrição</th>
                   <th data-field="Excluir">Excluir</th>
                   <th data-field="Alterar">Alterar</th>
-                  <th data-field="Alterar">Ver Memórias</th>
-                  <th data-field="Alterar">Nova memória</th>
               </tr>
             </thead>
             <% if (!(acos.isEmpty())) { %>    
@@ -51,13 +51,9 @@
                             <td><%=listaAcontecimento.getAdata()%></td>
                             <td><%=listaAcontecimento.getAinfo()%></td>
                             <% if (usuLogado.getUtipo().equals("adm")) { %>
-                                <td><a href="excluirAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">[Excluir]</a></td>
-                                <td><a href="alterarAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">[Alterar]</a></td>
+                                <td><a href="excluirAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">Excluir</a></td>
+                                <td><a href="alterarAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">Alterar</a></td>
                             <% } %>
-                            
-                            <td><a href="../memoria/validaConsultarMemoria.jsp?COD=<%=listaAcontecimento.getAcod()%>">[Ver Memórias]</a></td>
-                            <td><a href="../memoria/inserirMemoria.jsp?COD=<%=listaAcontecimento.getAcod()%>">[Nova Memória]</a></td>
-                        
                         </tr>
                     <% } %>
                 </tbody>

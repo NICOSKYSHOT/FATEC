@@ -14,28 +14,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Exclusão de Usuario</title>
     </head>
-    <style type="text/css">
-        body{
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            text-align: center;
-        }
-        
-        table{
-            margin: 0 auto;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style> 
     <body>
+        <a href="../../index.jsp">INDEX</a> |
+        <a href="../acesso/login.jsp">LOGIN</a><br><br>
         <h1>Usuário Excluido! </h1>
-        <a href="consultarUsuario.jsp"><b>Voltar</b>
     </body>
 </html>

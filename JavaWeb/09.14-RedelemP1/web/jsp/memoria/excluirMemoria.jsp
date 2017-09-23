@@ -4,25 +4,20 @@
 
 <%
     String cod = request.getParameter("COD");
-    int acod = Integer.parseInt(cod);
-    String atitulo = request.getParameter("TIT");
-    String adata = request.getParameter("DATA");
-    String ainfo = request.getParameter("INFO");
-
-    Acontecimento aco = new Acontecimento(acod,atitulo,adata,ainfo);
+    int id = Integer.parseInt(cod);
+    Acontecimento aco = new Acontecimento(id,"","","");
     AcontecimentoControler acoCont = new AcontecimentoControler();
-    aco = acoCont.alterarAcontecimento(aco);
+    aco = acoCont.excluirAcontecimento(aco);
 %>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
-        <title>Confirmação de Alteração - Rede Lembranças</title>
+        <title>Exclusão de Usuario</title>
     </head>
     <body>
-        <h1>Alteração Realizada!</h1>
+        <h1>Usuário Excluido! </h1>
         <a href="consultarAcontecimento.jsp"><b>Voltar</b>
     </body>
 </html>

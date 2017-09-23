@@ -18,41 +18,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Menu - Rede Lembranças</title>
     </head>
-    <style type="text/css">
-        body{
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            text-align: center;
-        }
-        
-        table{
-            margin: 0 auto;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style>    
     <body>
-        Opções: 
-        <br>Usuarios -> |
-        <a href="../usuario/consultarUsuario.jsp">Consultar (Alterar e Excluir)</a> |
-        <a href="../usuario/inserirUsuario.jsp"> Inserir novo Usuario</a> |
-        
-        <% if (usu.getUtipo().equals("adm")) { %>
-        <br>Acontecimentos -> |
-        <a href="../acontecimento/consultarAcontecimento.jsp">Consultar (Alterar e Excluir)</a> |
-        <a href="../acontecimento/inserirAcontecimento.jsp">Inserir novo Acontecimento</a> |
-        <% } %>
+        <a href="../../index.jsp"> INDEX </a> |
+        <a href="login.jsp"> LOGIN </a>
         <br><br>
+        Opções: 
+        <br>Gerenciamento de Usuarios -> 
+        <a href="../usuario/consultarUsuario.jsp"> Consultar (Alterar e Excluir)</a> |
+        <a href="../usuario/inserirUsuario.jsp"> Cadastrar novo Usuario</a>
         
-        <table border="0">
-            <h1>Perfil Atual</h1>
+        <br>Gerenciamento de Acontecimentos -> 
+        <a href="../acontecimento/consultarAcontecimento.jsp"> Consultar (Alterar e Excluir)</a> |
+        <a href="../acontecimento/inserirAcontecimento.jsp"> Cadastrar novo Usuario</a>
+   
+        <br><br>
+         <% if (!usu.getUtipo().equals("adm") && !usu.getUtipo().equals("comum")) { %>
+         <a href="../usuario/inserirUsuario.jsp">LOGADO COMO CONVIDADO (CONTA INEXISTENTE)<br>
+         CRIE UMA CONTA CLICANDO AQUI</a>
+        <% } %>
+        
+        <table border="3">
+            <h2>Perfil Atual</h2>
             <tr>
                 <td><b>ID:</b></td>
                 <td> <%=usu.getUid()%> </td>
@@ -78,8 +67,6 @@
                 <td> <%=usu.getUtipo()%></td>
             </tr>
         </table>
-       
-        <br><br><a href="../acesso/login.jsp">Voltar</a>
         
     </body>
 </html>

@@ -12,32 +12,19 @@
 %>
 
 <html>
-    <%//@include file="../../inc/materalizeWeb.inc" %>
+    <head>
     <title>Consulta Usuarios - Rede Lembranças</title>
-    
-    <style type="text/css">
-        body{
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            text-align: center;
-        }
-        
-        table{
-            margin: 0 auto;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style> 
+    <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
+    </head>
     
     <body>
+        <a href="../../index.jsp"> INDEX </a> |
+        <a href="../acesso/login.jsp"> LOGIN </a> |
+        <a href="consultarUsuario.jsp"> BUSCAR </a><br<br>
         <h2>Lista de Usuários - Rede Lembranças</h2>
-        Obs: É necessário estar logado como uma conta de tipo "adm" para poder Excluir e Alterar 
-        | <a href="../acesso/login.jsp"><b>Voltar</b></a>
+        
+        Obs: É necessário estar logado como uma conta de tipo "adm" para poder Excluir e Alterar <br><br>
+       
         <table border="1" cellpadding="10" class="striped responsive-table">
             <thead>
               <tr>
@@ -62,12 +49,13 @@
                             <td><%=listaUsuario.getUnasc()%></td>
                             <td><%=listaUsuario.getUtipo()%></td>
                             <% if (usuLogado.getUtipo().equals("adm")) { %>
-                                <td><a href="excluirUsuario.jsp?COD=<%=listaUsuario.getUid()%>">Excluir</a></td>
-                                <td><a href="alterarUsuario.jsp?COD=<%=listaUsuario.getUid()%>">Alterar</a></td>
+                                <td><a href="excluirUsuario.jsp?COD=<%=listaUsuario.getUid()%>">[Excluir]</a></td>
+                                <td><a href="alterarUsuario.jsp?COD=<%=listaUsuario.getUid()%>">[Alterar]</a></td>
                             <% } %>
                         </tr>
                     <% } %>
                 </tbody>
             <% } %>
+            
     </body>
 </html>

@@ -1,5 +1,7 @@
 package exp2;
 
+//Vitor Francisco Lamounier & Lucas Joaquim da Silva
+
 import java.text.ParseException;
 
 import javax.swing.JOptionPane;
@@ -41,11 +43,10 @@ public class Menu2 {
 			case 4:
 				P2Ex4.x();
 				break;
-				/*
+				
 			case 5:
 				P2Ex5.x();
 				break;
-				*/
 				
 			case 6:
 				MenuGeral.x();

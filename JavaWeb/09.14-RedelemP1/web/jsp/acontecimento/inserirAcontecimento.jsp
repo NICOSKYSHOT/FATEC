@@ -2,12 +2,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Inserir Acontecimento - Rede Lembranças</title>
     </head>
     
-    <style type="text/css">
-        td { text-align: center; }
-    </style>
     
     <body>
         <form name="inserirAcontecimento" action="validaInserirAcontecimento.jsp" method="post">

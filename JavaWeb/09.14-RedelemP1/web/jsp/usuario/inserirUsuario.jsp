@@ -2,33 +2,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Inserir Usuario - Rede Lembranças</title>
     </head>
     
-    <style type="text/css">
-        body{
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            text-align: center;
-        }
-        
-        table{
-            margin: 0 auto;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style> 
-    
     <body>
+         <a href="../../index.jsp">INDEX</a> |
+         <a href="../acesso/login.jsp">LOGIN</a><br><br>
+        
         <form name="inserirUsuario" action="validaInserirUsuario.jsp" method="post">
-            <h1>Formulário de Cadastro</h1>
-                
+
             <table border="0">
+            Formulário de Cadastro
             <tr>
                 <td><b>Nome:</b></td>
                 <td><input type="text" name="NOME" value=""></td>
@@ -57,7 +42,7 @@
         </table>
             <br><br>
             *Data de Nascimento<br><br>
-           Obs: Tipo só pode ser redefinido em Alteração.
+           Obs: Tipo só pode ser redefinido em Alteração por uma conta adm.
         </form>
     </body>
 </html>

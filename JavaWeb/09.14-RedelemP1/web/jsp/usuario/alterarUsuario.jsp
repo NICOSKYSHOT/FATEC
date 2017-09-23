@@ -13,27 +13,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Alterar Usuario - Rede Lembranças</title>
     </head>
-    
-    <style type="text/css">
-        body{
-            background-color: chartreuse;
-            font-family: sans-serif;
-            font-size: 26px;
-            text-align: center;
-        }
-        
-        table{
-            margin: 0 auto;
-        }
-        
-        a{
-            text-decoration: none;
-            color: snow;
-
-        }
-    </style> 
     
     <body>
         <form name="alterarUsuario" action="validaAlterarUsuario.jsp" method="post">

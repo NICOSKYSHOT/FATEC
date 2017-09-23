@@ -1,5 +1,7 @@
 package exp2;
 
+//Vitor Francisco Lamounier & Lucas Joaquim da Silva
+
 import javax.swing.JOptionPane;
 
 public class P2Ex3 {

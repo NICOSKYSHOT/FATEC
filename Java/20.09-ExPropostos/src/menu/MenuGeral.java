@@ -1,5 +1,6 @@
 package menu;
 
+//Vitor Francisco Lamounier & Lucas Joaquim da Silva
 import exp1.Menu1;
 import exp2.Menu2;
 
@@ -17,7 +18,6 @@ public class MenuGeral {
 			
 			public static void x() throws ParseException, Exception {
 				
-			
 				int op=-1;
 				while (op!=0){
 					op = Integer.parseInt(JOptionPane.showInputDialog(null, "ESCOLHA QUAL LISTA DE EXERCÍCIOS PROPOSTOS" + 
