@@ -1,6 +1,6 @@
 package layouts;
 
-import layouts.LayoutPanel;
+import layouts.LayoutGrid;
 import layouts.LayoutFlow;
 
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ public class Layouts {
 				)); 
 	
 			if(op==1) {
-				LayoutPanel.Panel();
+				LayoutGrid.Panel();
 			}else if(op==2) {
 				//LayoutFlow.Flow();
 			}else if(op==3) {
