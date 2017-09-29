@@ -18,44 +18,62 @@ public class MemoriaDao {
         this.c = new ConexaoDB().getConnection();
     }
     
-    public Memoria busca(Memoria mem) throws SQLException{
-        String sql = "SELECT uid, unome FROM usuario INNER JOIN memorias ON usuario.uid = memoria.muid";
+    public Memoria altera(Memoria mem) throws SQLException{
+        String sql = "UPDATE memorias SET muid = ?, macod = ?, mcom = ? WHERE mcod = ?";
         
-        try (
-            PreparedStatement stmt = this.c.prepareStatement(sql)) {
+        PreparedStatement stmt = c.prepareStatement(sql);
+        
+        stmt.setInt(1,mem.getMuid());
+        stmt.setInt(2,mem.getMacod());
+        stmt.setString(3,mem.getMcom());
+        stmt.setInt(4,mem.getMcod());
+
+        stmt.execute();
+        stmt.close();
+        return mem;
+    }
+    
+    public Memoria exclui(Memoria mem) throws SQLException{
+        String sql = "DELETE FROM memorias WHERE mcod = ?";
+        
+        PreparedStatement stmt = c.prepareStatement(sql);
+        
+        stmt.setInt(1,mem.getMcod());
+        
+        stmt.execute();
+        stmt.close();
+        c.close();
+        return mem;
+    }
+    
+    public Memoria inseri(Memoria mem) throws SQLException{
+        String sql = "INSERT INTO memorias" + " (muid, macod, com)" + " values (?,?,?)";
+    
+        PreparedStatement stmt = c.prepareStatement(sql);
+
+        stmt.setInt(1,mem.getMuid());
+        stmt.setInt(2,mem.getMacod());
+        stmt.setString(3,mem.getMcom());
+
+        // executa
+        stmt.execute();
+        stmt.close();
+        return mem;
+    }
+    
+    public Memoria busca(Memoria mem) throws SQLException{
+        String sql = "SELECT * FROM memorias WHERE mcod = ?";
+        
+        PreparedStatement stmt = this.c.prepareStatement(sql);
             stmt.setInt(1,mem.getMcod());
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next()) {
                 mem.setMcod(rs.getInt(1));
-                mem.setMcom(rs.getString(2));
-                mem.setMuid(rs.getInt(3));
-                mem.setMacod(rs.getInt(4));
+                mem.setMuid(rs.getInt(2));
+                mem.setMacod(rs.getInt(3));
+                mem.setMcom(rs.getString(4));
             }
-        }
-        return mem;
-    }
-    
-    public Memoria altera(Memoria mem) throws SQLException{
-        String sql = "UPDATE memorias SET mcom = ? WHERE mcod = ?";
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1,mem.getMcom());
-            stmt.setInt(6,mem.getMcod());
-            
-            stmt.execute();
-        }
-        return mem;
-    }
-
-    public Memoria exclui(Memoria mem) throws SQLException{
-        String sql = "delete from memorias WHERE mcod = ?";
-        
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setInt(1,mem.getMcod());
-            
-            stmt.execute();
-        }
-        c.close();
         return mem;
     }
 
@@ -63,7 +81,8 @@ public class MemoriaDao {
 
         List<Memoria> mems = new ArrayList<>();
         
-        String sql = "select * from memorias where mcom like ?";
+        String sql = "SELECT * FROM memorias WHERE mcom LIKE ?";
+        
         try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
             stmt.setString(1,"%" + memEnt.getMcom() + "%");      
             
@@ -72,26 +91,18 @@ public class MemoriaDao {
                     
                     Memoria mem = new Memoria(
                             rs.getInt(1),
-                            rs.getString(2),
+                            rs.getInt(2),
                             rs.getInt(3),
-                            rs.getInt(4)
+                            rs.getString(4)
                     );
                     
                     mems.add(mem);
                 }
+                
+                rs.close();
+                stmt.close();
             }
+            return mems;
         }
-        return mems;
-    }
-    
-    public Memoria inseri(Memoria mem) throws SQLException{
-        String sql = "insert into memorias" + " (mcom)" + " values (?)";
-    
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1,mem.getMcom());
-            
-            stmt.execute();
-        }
-        return mem;
     }
 }
