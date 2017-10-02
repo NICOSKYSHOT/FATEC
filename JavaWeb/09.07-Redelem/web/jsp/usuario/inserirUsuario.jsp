@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td><b>Tipo:</b></td>
-                <td>COMUM</td>
+                    <td>COMUM</td>
             </tr>
             <tr>
                 <td><input type="HIDDEN" name="TIPO" value="comum">

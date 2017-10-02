@@ -12,7 +12,7 @@
         <a href="login.jsp"> LOGIN </a><br<br>
         <h1>Busca por Usuário</h1>
         <form name="consultarUsuario" action="validaConsultarUsuario.jsp" method="post">
-            Login (nome de usuário): <input type="text" name ="login" value="">
+            Login (nome de usuário): <input type="text" name ="NOME" value="">
             <input type="submit" name ="Enviar" value="Buscar"><br>
         </form>
         <br>Obs: Não é obrigatório especificar o login<br>

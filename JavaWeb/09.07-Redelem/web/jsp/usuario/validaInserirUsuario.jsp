@@ -8,7 +8,9 @@
     String senha = request.getParameter("SENHA");
     String nasc = request.getParameter("NASC");
     String tipo = request.getParameter("TIPO");
+    
     Usuario usu = new Usuario(0,nome,login,senha,nasc,tipo);
+    
     UsuarioControler usucont = new UsuarioControler();
     usu = usucont.inserirUsuario(usu);
 %>

@@ -21,15 +21,14 @@ public class MemoriaDao {
     public Memoria altera(Memoria mem) throws SQLException{
         String sql = "UPDATE memorias SET muid = ?, macod = ?, mcom = ? WHERE mcod = ?";
         
-        PreparedStatement stmt = c.prepareStatement(sql);
-        
-        stmt.setInt(1,mem.getMuid());
-        stmt.setInt(2,mem.getMacod());
-        stmt.setString(3,mem.getMcom());
-        stmt.setInt(4,mem.getMcod());
-
-        stmt.execute();
-        stmt.close();
+        try (PreparedStatement stmt = c.prepareStatement(sql)) {
+            stmt.setInt(1,mem.getMuid());
+            stmt.setInt(2,mem.getMacod());
+            stmt.setString(3,mem.getMcom());
+            stmt.setInt(4,mem.getMcod());
+            
+            stmt.execute();
+        }
         return mem;
     }
     
@@ -47,7 +46,7 @@ public class MemoriaDao {
     }
     
     public Memoria inseri(Memoria mem) throws SQLException{
-        String sql = "INSERT INTO memorias" + " (muid, macod, com)" + " values (?,?,?)";
+        String sql = "INSERT INTO memorias" + " (muid, macod, mcom)" + " values (?,?,?)";
     
         PreparedStatement stmt = c.prepareStatement(sql);
 

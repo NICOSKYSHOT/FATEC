@@ -3,8 +3,8 @@
 <%@page import="br.com.redelem.controler.UsuarioControler"%>
 
 <%
-    String cod = request.getParameter("COD");
-    int id = Integer.parseInt(cod);
+    int id = Integer.parseInt(request.getParameter("COD"));
+    //int id = Integer.parseInt(cod);
     Usuario usu = new Usuario(id,"","","","","");
     UsuarioControler usuCont = new UsuarioControler();
     usu = usuCont.buscarUsuario(usu);

@@ -4,8 +4,8 @@
 <%@page import="br.com.redelem.controler.UsuarioControler"%>
 
 <%
-    String login = request.getParameter("login");
-    Usuario  usu = new Usuario(0,"",login,"","","");
+    String nome = request.getParameter("NOME");
+    Usuario usu = new Usuario(0,nome,"","","","");
     UsuarioControler usucont = new UsuarioControler();
     List<Usuario> usus = usucont.listarUsuario(usu);
     Usuario usuLogado = (Usuario) session.getAttribute("UsuarioLogado");
@@ -38,6 +38,7 @@
                   <th data-field="Alterar">Alterar</th>
               </tr>
             </thead>
+            
             <% if (!(usus.isEmpty())) { %>    
                 <tbody>
                     <% for (Usuario listaUsuario : usus) { %>

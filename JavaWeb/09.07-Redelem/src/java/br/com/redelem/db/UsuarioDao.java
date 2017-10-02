@@ -92,6 +92,7 @@ public class UsuarioDao {
         List<Usuario> usus = new ArrayList<>();
         
         String sql = "select * from usuarios where unome like ?";
+        
         try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
             stmt.setString(1,"%" + usuEnt.getUnome() + "%");      
             
@@ -117,7 +118,7 @@ public class UsuarioDao {
     public Usuario inseri(Usuario usu) throws SQLException{
         String sql = "insert into usuarios" + " (unome, ulogin, usenha, unasc, utipo)" + " values (?,?,?,?,?)";
     
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
+        try (PreparedStatement stmt = c.prepareStatement(sql)){ 
             stmt.setString(1,usu.getUnome());
             stmt.setString(2,usu.getUlogin());
             stmt.setString(3,usu.getUsenha());
