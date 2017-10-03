@@ -1,17 +1,13 @@
 package br.com.redelem.controler;
 
+//Importações referentes a Acontecimentos
 import br.com.redelem.bean.Acontecimento;
 import br.com.redelem.db.AcontecimentoDao;
 import java.sql.SQLException;
 import java.util.List;
 
+//Funcionalidades do Acontecimento
 public class AcontecimentoControler {
-    
-    /*public Acontecimento validaAcontecimento(Acontecimento aco) throws SQLException, ClassNotFoundException {
-        AcontecimentoDao acoDao = new AcontecimentoDao();
-        aco = acoDao.validaLogin(aco);
-        return aco;
-    }*/
     
     public Acontecimento inserirAcontecimento(Acontecimento aco) throws SQLException, ClassNotFoundException {
         AcontecimentoDao acoDao = new AcontecimentoDao();
@@ -43,4 +39,5 @@ public class AcontecimentoControler {
         acos = acoDao.lista(aco);
         return acos;
     }
+
 }

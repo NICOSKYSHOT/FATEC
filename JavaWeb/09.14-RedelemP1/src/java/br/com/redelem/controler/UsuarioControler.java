@@ -1,10 +1,12 @@
 package br.com.redelem.controler;
 
+//Importações referentes a Usuários
 import br.com.redelem.bean.Usuario;
 import br.com.redelem.db.UsuarioDao;
 import java.sql.SQLException;
 import java.util.List;
 
+//Funcionalidades do Usuário
 public class UsuarioControler {
     
     public Usuario validaUsuario(Usuario usu) throws SQLException, ClassNotFoundException {

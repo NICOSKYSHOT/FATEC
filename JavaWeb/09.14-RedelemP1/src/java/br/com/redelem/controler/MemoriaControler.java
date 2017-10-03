@@ -1,5 +1,6 @@
 package br.com.redelem.controler;
 
+//Importações, note o Usuário e Acontecimento
 import br.com.redelem.bean.Acontecimento;
 import br.com.redelem.bean.Usuario;
 import br.com.redelem.bean.Memoria;
@@ -7,6 +8,7 @@ import br.com.redelem.db.MemoriaDao;
 import java.sql.SQLException;
 import java.util.List;
 
+//Funcionalidades da Memória
 public class MemoriaControler {
     
     static UsuarioControler usuCont = new UsuarioControler();
