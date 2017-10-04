@@ -114,6 +114,35 @@ public class UsuarioDao {
         return usus;
     }
     
+    public List<Usuario> listaTodos() throws SQLException{
+         // usus: array armazena a lista de registros
+
+        List<Usuario> usus = new ArrayList<>();
+        
+        String sql = "select * from usuarios";
+        try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                // criando o objeto Usuario
+                Usuario usu = new Usuario(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+                // adiciona o usu à lista de usus
+                usus.add(usu);
+            }
+            
+            rs.close();
+        }
+        return usus;
+        
+    }
+    
     public Usuario inseri(Usuario usu) throws SQLException{
         String sql = "insert into usuarios" + " (unome, ulogin, usenha, unasc, utipo)" + " values (?,?,?,?,?)";
     

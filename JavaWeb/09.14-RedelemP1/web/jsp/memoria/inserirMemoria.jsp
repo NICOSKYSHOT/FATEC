@@ -1,44 +1,57 @@
+<%@page import="java.util.List"%>
 <%@page import="br.com.redelem.bean.Acontecimento"%>
 <%@page import="br.com.redelem.bean.Usuario"%>
+<%@page import="br.com.redelem.controler.UsuarioControler"%>
+<%@page import="br.com.redelem.controler.AcontecimentoControler"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    String cod = request.getParameter("COD");
-    int id = Integer.parseInt(cod);
+    AcontecimentoControler acoCont = new AcontecimentoControler();
+    List<Acontecimento> acos = acoCont.listarTodosAcontecimento();
+    
+    UsuarioControler usuCont = new UsuarioControler();
+    List<Usuario> usus = usuCont.listarTodosUsuario();
 %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <title>Inserir Acontecimento - Rede Lembranças</title>
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
+        <title>Inserir Memória - Rede Lembranças</title>
     </head>
     
-    
-    <body>
-        <form name="inserirAcontecimento" action="validaInserirMemoria.jsp" method="post">
-            <h1>Formulário de Cadastro</h1>
-                
-            <table border="0">
-            <tr>
-                <td><b>Codigo do Acontecimento:</b></td>
-                <td> <input type="text" name="ACOD" value=""><%String cod = request.getParameter("COD");%> </td>
-            </tr>
-            <tr>
-                <td><b>Memória:</b></td>
-                <td><input type="text" name="MEM" value=""></td>
-            </tr>
+        <div class="container"/>
             
-            <tr>
-                <td><b>Código do usuário:</b></td>
-                <td><input type="text" name="UCOD" value=""></td>
-                <td><a href="../usuario/consultarUsuario" target="_blank">Verificar Usuarios </a></td>
-            </tr>
-            <tr>
-                    <input type="HIDDEN" name="ID" value=""></td>    
-                <td><input type="submit" name="Enviar" value="CADASTRAR"></td>
-            </tr>
-        </table>
-        <a href="../../index.jsp"><b>Voltar</b></a>
-        </form>
-    </body>
+            <form name="inseriMemoria" action="validaInserirMemoria.jsp" method="POST">
+                <table>
+                    <h1>Adicionar nova memória</h1>
+                    <tr>
+                        <td>Acontecimento:</td>
+                        <td>
+                            <select name ="MACOD">
+                                <% for (Acontecimento aco : acos) { %>
+                                    <option value="<%=aco.getAcod()%>"><%=aco.getAtitulo()%></option>
+                                <% } %>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Usuario:</td>
+                        <td>
+                            <select name="MUID">
+                                <% for (Usuario usu : usus) { %>
+                                    <option value="<%=usu.getUid()%>"><%=usu.getUnome()%></option>
+                                <% } %>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lembrança:</td>
+                        <td><input type="text" name="MCOM" value=""></td>
+                    </tr>
+                </table>    
+                <input type="submit" name="Enviar" value="Enviar">  <br>
+            </form>
+        </div>                     
+    
 </html>

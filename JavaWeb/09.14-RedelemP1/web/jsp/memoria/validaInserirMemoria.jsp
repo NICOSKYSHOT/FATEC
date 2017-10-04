@@ -7,34 +7,32 @@
 <%@page import="br.com.redelem.controler.AcontecimentoControler"%>
 
 <%
-    String mcom = request.getParameter("MEM");
-    int muid = Integer.parseInt(request.getParameter("UCOD"));
-    int macod = Integer.parseInt(request.getParameter("ACOD"));
+    int muid = Integer.parseInt(request.getParameter("MUID"));
+    int macod = Integer.parseInt(request.getParameter("MACOD"));
+    String mcom = request.getParameter("MCOM");
     
-    Memoria mem = new Memoria(0,mcom,muid,macod);
-    MemoriaControler memcont = new MemoriaControlerS();
+    Memoria mem = new Memoria(0,muid,macod,mcom);
+    MemoriaControler memcont = new MemoriaControler();
     mem = memcont.inserirMemoria(mem);
-%>S
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Confirmação de Cadastro</title>
     </head>
     
     <body>
-        <h1>O seguinte Acontecimento foi Cadastrado:</h1>
+        <h1>A seguinte memória foi Cadastrada:</h1>
         <table border="0">   
-             <tr>
-                <td><b>Codigo:</b></td>
-                <td> <%=mem.getMcod()%></td>
-            </tr>
             <tr>
-                <td><b>Memoria:</b></td>
+                <td><b>Lembrança:</b></td>
                 <td> <%=mem.getMcom()%> </td>
             </tr>
             <tr>
-                <td><b>Codigo do Acontecimento:</b></td>
+                <td><b>Codigo do Usuário:</b></td>
                 <td> <%=mem.getMuid()%></td>
             </tr>
             <tr>

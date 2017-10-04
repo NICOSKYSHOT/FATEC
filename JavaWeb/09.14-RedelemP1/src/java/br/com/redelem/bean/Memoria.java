@@ -2,7 +2,7 @@ package br.com.redelem.bean;
 
 public class Memoria {
     
-    private int mcod; //Memória Código[
+    private int mcod; //Memória Código
     private int muid; //Memória Usuário Código
     private int macod; //Memória Acontecimento Código 
     private String mcom; //Memória Comentário (aka Lembrança)

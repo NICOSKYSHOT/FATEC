@@ -1,13 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.redelem.bean.Acontecimento"%>
-<%@page import="br.com.redelem.controler.AcontecimentoControler"%>
+<%@page import="br.com.redelem.bean.Memoria"%>
+<%@page import="br.com.redelem.controler.MemoriaControler"%>
 
 <%
-    String cod = request.getParameter("COD");
+    String cod = request.getParameter("ID");
     int id = Integer.parseInt(cod);
-    Acontecimento aco = new Acontecimento(id,"","","");
-    AcontecimentoControler acoCont = new AcontecimentoControler();
-    aco = acoCont.excluirAcontecimento(aco);
+    Memoria mem = new Memoria(id,0,0,"");
+    MemoriaControler memCont = new MemoriaControler();
+    mem = memCont.excluirMemoria(mem);
 %>
 
 <!DOCTYPE html>
@@ -18,6 +18,6 @@
     </head>
     <body>
         <h1>Usuário Excluido! </h1>
-        <a href="consultarAcontecimento.jsp"><b>Voltar</b>
+        <a href="consultarMemoria.jsp"><b>Voltar</b>
     </body>
 </html>

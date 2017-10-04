@@ -1,27 +1,30 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.redelem.bean.Acontecimento"%>
-<%@page import="br.com.redelem.controler.AcontecimentoControler"%>
+<%@page import="br.com.redelem.bean.Memoria"%>
+<%@page import="br.com.redelem.controler.MemoriaControler"%>
 
 <%
-    String cod = request.getParameter("COD");
-    int acod = Integer.parseInt(cod);
-    String atitulo = request.getParameter("TIT");
-    String adata = request.getParameter("DATA");
-    String ainfo = request.getParameter("INFO");
+    int mcod = Integer.parseInt(request.getParameter("ID"));
 
-    Acontecimento aco = new Acontecimento(acod,atitulo,adata,ainfo);
-    AcontecimentoControler acoCont = new AcontecimentoControler();
-    aco = acoCont.alterarAcontecimento(aco);
+    int muid = Integer.parseInt(request.getParameter("muid"));
+    int macod = Integer.parseInt(request.getParameter("macod"));
+    String mcom = request.getParameter("LEM");
+    
+    Memoria mem = new Memoria(mcod,muid,macod,mcom);
+    MemoriaControler memCont = new MemoriaControler();
+    mem = memCont.alterarMemoria(mem);
 %>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
         <title>Confirmação de Alteração - Rede Lembranças</title>
     </head>
     <body>
+        <a href="../../index.jsp">INDEX</a> |
+        <a href="../acesso/login.jsp">LOGIN</a> |
+        <a href="consultarUsuario.jsp">BUSCA</a><br><br>
         <h1>Alteração Realizada!</h1>
-        <a href="consultarAcontecimento.jsp"><b>Voltar</b>
     </body>
 </html>

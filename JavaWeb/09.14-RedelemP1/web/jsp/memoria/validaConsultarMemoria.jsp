@@ -1,58 +1,58 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.redelem.bean.Acontecimento"%>
 <%@page import="br.com.redelem.bean.Usuario"%>
 <%@page import="java.util.List"%>
-<%@page import="br.com.redelem.controler.AcontecimentoControler"%>
-<%@page import="br.com.redelem.controler.UsuarioControler"%>
+<%@page import="br.com.redelem.bean.Memoria"%>
+<%@page import="br.com.redelem.controler.MemoriaControler"%>
 
 <%
-    String atitulo = request.getParameter("titulo");
-    Acontecimento aco = new Acontecimento(0,atitulo,"","");
-    AcontecimentoControler acocont = new AcontecimentoControler();
-    List<Acontecimento> acos = acocont.listarAcontecimento(aco);
-    
-    
-    Usuario  usu = new Usuario(0,"","","","","");
-    UsuarioControler usucont = new UsuarioControler();
-    List<Usuario> usus = usucont.listarUsuario(usu);
+    String com = request.getParameter("memo");
+    Memoria mem = new Memoria(0,0,0,com);
+    MemoriaControler memcont = new MemoriaControler();
+    List<Memoria> mems = memcont.listarMemoria(mem);
+  
     Usuario usuLogado = (Usuario) session.getAttribute("UsuarioLogado");
+    String url = "MBUSCA=" + mem.getMcom() +"&ID=" ;
 %>
 
 <html>
-    <%//@include file="../../inc/materalizeWeb.inc" %>
-    <title>Consulta Acontecimentos - Rede Lembranças</title>
-    
-    <style type="text/css">
-        td { text-align: center; 
-             font-family: courier}
-    </style>
-    
+    <head>
+    <title>Consulta Memórias - Rede Lembranças</title>
+    <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css"/>
+    </head>
     <body>
-        <h2>Lista de ADM - Rede Lembranças</h2>
-        Obs: É necessário estar logado como uma conta de tipo "adm" para poder Excluir e Alterar 
-        | <a href="../acesso/login.jsp"><b>Voltar</b></a>
+        <a href="../../index.jsp"> INDEX </a> |
+        <a href="../acesso/login.jsp"> LOGIN </a> |
+        <a href="consultarUsuario.jsp"> BUSCAR </a><br><br>
+        <h2>Lista de Usuários - Rede Lembranças</h2>
+        
+        Obs: É necessário estar logado como uma conta de tipo "adm" para poder Excluir e Alterar <br><br>
+       
         <table border="1" cellpadding="10" class="striped responsive-table">
             <thead>
               <tr>
-                  <th data-field="Id">Código</th>
-                  <th data-field="Nome">Título</th>
-                  <th data-field="Login">Data</th>
-                  <th data-field="Senha">Descrição</th>
-                  <th data-field="Excluir">Excluir</th>
-                  <th data-field="Alterar">Alterar</th>
+                  <th data-field="imem">Código Memória</th>
+                  <th data-field="caco">Código Acontecimento</th>
+                  <th data-field="taco">Título Acontecimento</th>
+                  <th data-field="idusu">Código Usuário</th>
+                  <th data-field="nusu">Nome Usuário</th>
+                  <th data-field="lem">Lembrança</th>
+                  <th data-field="ex">Excluir</th>
+                  <th data-field="al">Alterar</th>
               </tr>
             </thead>
-            <% if (!(acos.isEmpty())) { %>    
+            <% if (!(mems.isEmpty())) { %>    
                 <tbody>
-                    <% for (Acontecimento listaAcontecimento : acos) { %>
+                    <% for (Memoria listaMemoria : mems) { %>
                         <tr>
-                            <td><%=listaAcontecimento.getAcod()%></td>
-                            <td><%=listaAcontecimento.getAtitulo()%></td>
-                            <td><%=listaAcontecimento.getAdata()%></td>
-                            <td><%=listaAcontecimento.getAinfo()%></td>
-                            <% if (usuLogado.getUtipo().equals("adm")) { %>
-                                <td><a href="excluirAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">Excluir</a></td>
-                                <td><a href="alterarAcontecimento.jsp?COD=<%=listaAcontecimento.getAcod()%>">Alterar</a></td>
+                            <td><%=listaMemoria.getMcod()%></td>
+                            <td><%=listaMemoria.getMacod()%></td>
+                            <td><%=listaMemoria.getAco().getAtitulo()%></td>
+                            <td><%=listaMemoria.getMuid()%></td>
+                            <td><%=listaMemoria.getUsu().getUnome()%></td>       
+                            <td><%=listaMemoria.getMcom()%></td>
+                            <% if (usuLogado.getUtipo().equals("adm") || usuLogado.getUid()==listaMemoria.getMuid()) { %>
+                                <td><a href="excluirMemoria.jsp?COD=<%=listaMemoria.getMcod()%>">Excluir</a></td>
+                                <td><a href="alterarMemoria.jsp?COD=<%=url + listaMemoria.getMcod()%>">Alterar</a></td>
                             <% } %>
                         </tr>
                     <% } %>

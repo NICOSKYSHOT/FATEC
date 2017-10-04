@@ -61,27 +61,7 @@ public class AcontecimentoDao {
         return aco;
     }
     
-    /*
-    public Acontecimento validaLogin(Acontecimento aco) throws SQLException{
-       
-        String sql = "select * from acontecimentos WHERE ulogin = ? AND usenha = ?";
-       
-        try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
-            stmt.setString(1,usu.getUlogin());
-            stmt.setString(2,usu.getUsenha());
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            while (rs.next()) {
-                aco.setAcod(rs.getInt(1));
-                aco.setAtitulo(rs.getString(2));
-                aco.setAdata(rs.getString(3));
-                aco.setAinfo(rs.getString(4));
-            }
-        }
-        return aco;
-    }
-    */
+    
     public List<Acontecimento> lista(Acontecimento acoEnt) throws SQLException{
 
         List<Acontecimento> acos = new ArrayList<>();
@@ -105,6 +85,33 @@ public class AcontecimentoDao {
             }
         }
         return acos;
+    }
+    
+    public List<Acontecimento> listaTodos() throws SQLException{
+         // usus: array armazena a lista de registros
+
+        List<Acontecimento> acos = new ArrayList<>();
+        
+        String sql = "select * from acontecimentos";
+        try (PreparedStatement stmt = this.c.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                // criando o objeto Usuario
+                Acontecimento aco = new Acontecimento(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4)
+                );
+                // adiciona o usu à lista de usus
+                acos.add(aco);
+            }
+            
+            rs.close();
+        }
+        return acos;
+        
     }
     
     public Acontecimento inseri(Acontecimento aco) throws SQLException{

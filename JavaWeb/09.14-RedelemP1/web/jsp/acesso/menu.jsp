@@ -32,7 +32,11 @@
         
         <br>Gerenciamento de Acontecimentos -> 
         <a href="../acontecimento/consultarAcontecimento.jsp"> Consultar (Alterar e Excluir)</a> |
-        <a href="../acontecimento/inserirAcontecimento.jsp"> Cadastrar novo Usuario</a>
+        <a href="../acontecimento/inserirAcontecimento.jsp"> Cadastrar novo Acontecimento</a>
+   
+        <br>Gerenciamento de Memórias -> 
+        <a href="../memoria/consultarMemoria.jsp"> Consultar (Alterar e Excluir)</a> |
+        <a href="../memoria/inserirMemoria.jsp"> Cadastrar nova Memória</a>
    
         <br><br>
          <% if (!usu.getUtipo().equals("adm") && !usu.getUtipo().equals("comum")) { %>

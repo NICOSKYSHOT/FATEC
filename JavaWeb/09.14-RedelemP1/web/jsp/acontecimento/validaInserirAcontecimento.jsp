@@ -18,10 +18,6 @@
         <title>Confirmação de Cadastro</title>
     </head>
     
-    <style type="text/css">
-        td { text-align: center; }
-    </style>
-    
     <body>
         <h1>O seguinte Acontecimento foi Cadastrado:</h1>
         <table border="0">   

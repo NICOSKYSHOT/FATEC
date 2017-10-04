@@ -20,7 +20,7 @@
     <body>
         <a href="../../index.jsp"> INDEX </a> |
         <a href="../acesso/login.jsp"> LOGIN </a> |
-        <a href="consultarUsuario.jsp"> BUSCAR </a><br<br>
+        <a href="consultarUsuario.jsp"> BUSCAR </a><br><br>
         <h2>Lista de Usuários - Rede Lembranças</h2>
         
         Obs: É necessário estar logado como uma conta de tipo "adm" para poder Excluir e Alterar <br><br>
@@ -48,7 +48,7 @@
                             <td><%=listaUsuario.getUsenha()%></td>
                             <td><%=listaUsuario.getUnasc()%></td>
                             <td><%=listaUsuario.getUtipo()%></td>
-                            <% if (usuLogado.getUtipo().equals("adm")) { %>
+                            <% if (usuLogado.getUtipo().equals("adm") || usuLogado.getUid()==listaUsuario.getUid()) { %>
                                 <td><a href="excluirUsuario.jsp?COD=<%=listaUsuario.getUid()%>">[Excluir]</a></td>
                                 <td><a href="alterarUsuario.jsp?COD=<%=listaUsuario.getUid()%>">[Alterar]</a></td>
                             <% } %>

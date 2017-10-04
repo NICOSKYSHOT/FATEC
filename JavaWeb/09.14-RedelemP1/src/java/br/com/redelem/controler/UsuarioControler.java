@@ -45,4 +45,11 @@ public class UsuarioControler {
         usus = usuDao.lista(usu);
         return usus;
     }
+    
+    public List<Usuario> listarTodosUsuario() throws SQLException, ClassNotFoundException {
+        List<Usuario>  usus ;
+        UsuarioDao usuDao = new UsuarioDao();
+        usus = usuDao.listaTodos();
+        return usus;
+    }
 }

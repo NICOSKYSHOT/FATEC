@@ -8,6 +8,7 @@
     Usuario usu = new Usuario(id,"","","","","");
     UsuarioControler usuCont = new UsuarioControler();
     usu = usuCont.buscarUsuario(usu);
+    Usuario usuLogado = (Usuario) session.getAttribute("UsuarioLogado");
 %>
 
 <html>
@@ -38,10 +39,17 @@
                 <td><b>DDN*:</b></td>
                 <td><input type="text" name="NASC" value="<%=usu.getUnasc()%>"></td>
             </tr>
-            <tr>
+            <% if (usuLogado.getUtipo().equals("adm")) { %>
+             <tr>
                 <td><b>Tipo:</b></td>
                 <td><input type="text" name="TIPO" value="<%=usu.getUtipo()%>"></td>
             </tr>
+            <% }else if(usuLogado.getUtipo().equals("comum")){ %>
+            <tr>
+                <td><b>Tipo:</b></td>
+                <td><input type="HIDDEN" name="TIPO" value="comum"td>COMUM
+            </tr>
+            <% } %>
             <tr>
                 <td> <input type="HIDDEN" name="ID" value="<%=usu.getUid()%>"></td>    
                 <td><input type="submit" name="Enviar" value="ALTERAR"></td>

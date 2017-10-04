@@ -40,4 +40,10 @@ public class AcontecimentoControler {
         return acos;
     }
 
+    public List<Acontecimento> listarTodosAcontecimento() throws SQLException, ClassNotFoundException {
+        List<Acontecimento>  acos ;
+        AcontecimentoDao acoDao = new AcontecimentoDao();
+        acos = acoDao.listaTodos();
+        return acos;
+    }
 }
