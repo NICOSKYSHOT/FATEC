@@ -115,8 +115,7 @@ public class UsuarioDao {
     }
     
     public List<Usuario> listaTodos() throws SQLException{
-         // usus: array armazena a lista de registros
-
+         // usus: array armazena a lista de registro
         List<Usuario> usus = new ArrayList<>();
         
         String sql = "select * from usuarios";

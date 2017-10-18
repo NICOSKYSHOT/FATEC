@@ -62,7 +62,6 @@ public class MemoriaControler {
             listaMemoria.setUsu(usuCont.buscarUsuario(usu));
             
         }
-      
         return mems;
     }
 }
