@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RESGATE - FATEC - MOBILE</string>
+    <string name="btentrar">Entrar</string>
+    <string name="btlistarTodos">Listar Todos</string>
+    <string name="btlistarParam">Listar Parametros</string>
+    <string name="btpesquisar">Pesquisar</string>
+    <string name="btinserir">Inserir</string>
+    <string name="btalterar">Alterar</string>
+    <string name="btexcluir">Excluir</string>
+    <string name="btnovousu">Novo Usuario</string>
+    <string name="btsalvar">Salvar</string>
+    <string name="lblogin">Login</string>
+    <string name="lbsenha">Senha</string>
+    <string name="lbtipo">Tipo</string>
+    <string name="lbstatus">Status</string>
+    <string name="lbid">Id</string>
+    <string name="lbusuariologado">UsuarioLogado</string>
+
+</resources>
