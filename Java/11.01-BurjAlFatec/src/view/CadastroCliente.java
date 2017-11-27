@@ -31,11 +31,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtSexo = new javax.swing.JTextField();
-        txtDatanas = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnCadastrarCli = new javax.swing.JButton();
         BtnLimpa = new javax.swing.JButton();
+        txtDatanas = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         Nav = new javax.swing.JMenu();
@@ -105,6 +105,12 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        try {
+            txtDatanas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,14 +122,15 @@ public class CadastroCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDatanas, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(btnCadastrarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(BtnLimpa, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                        .addComponent(txtCpf)))
+                        .addComponent(txtCpf))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtDatanas, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -372,7 +379,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuHome;
     private javax.swing.JMenuItem menuLimpa;
     private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtDatanas;
+    private javax.swing.JFormattedTextField txtDatanas;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables

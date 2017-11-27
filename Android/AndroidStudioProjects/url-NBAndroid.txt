@@ -1,0 +1,1 @@
+ http://nbandroid.org/release81/updates/updates.xml
