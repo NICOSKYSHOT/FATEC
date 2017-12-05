@@ -29,10 +29,10 @@ public class ConsultarCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
-        txtDatanas = new javax.swing.JTextField();
-        txtCpf = new javax.swing.JTextField();
+        txtNomeC = new javax.swing.JTextField();
+        txtSexoC = new javax.swing.JTextField();
+        txtDatanasC = new javax.swing.JTextField();
+        txtCpfC = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnBuscarCli = new javax.swing.JButton();
         BtnLimpa = new javax.swing.JButton();
@@ -95,10 +95,10 @@ public class ConsultarCliente extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 204, 0));
         jLabel4.setText("CPF");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 236, -1, -1));
-        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 118, 166, -1));
-        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 164, 166, -1));
-        jPanel1.add(txtDatanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 210, 166, -1));
-        jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 256, 170, -1));
+        jPanel1.add(txtNomeC, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 118, 166, -1));
+        jPanel1.add(txtSexoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 164, 166, -1));
+        jPanel1.add(txtDatanasC, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 210, 166, -1));
+        jPanel1.add(txtCpfC, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 256, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 2, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 0));
@@ -272,47 +272,48 @@ public class ConsultarCliente extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,"BUSCA REALIZADA");
         
-        txtNome.setText(cli.getNome());
-        txtSexo.setText(cli.getSexo());
-        txtDatanas.setText(cli.getDatanas());
-        txtCpf.setText(cli.getCpf());
+        txtNomeC.setText(cli.getNome());
+        txtSexoC.setText(cli.getSexo());
+        txtDatanasC.setText(cli.getDatanas());
+        txtCpfC.setText(cli.getCpf());
     }//GEN-LAST:event_menuBuscarActionPerformed
 
     private void menuLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLimparActionPerformed
-        txtNome.setText("");
-        txtSexo.setText("");
-        txtDatanas.setText("");
-        txtCpf.setText("");
+        txtNomeC.setText("");
+        txtSexoC.setText("");
+        txtDatanasC.setText("");
+        txtCpfC.setText("");
         txtId.setText("");
     }//GEN-LAST:event_menuLimparActionPerformed
 
     private void BtnLimpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpaActionPerformed
-        txtNome.setText("");
-        txtSexo.setText("");
-        txtDatanas.setText("");
-        txtCpf.setText("");
+        txtNomeC.setText("");
+        txtSexoC.setText("");
+        txtDatanasC.setText("");
+        txtCpfC.setText("");
         txtId.setText("");
     }//GEN-LAST:event_BtnLimpaActionPerformed
 
     private void btnBuscarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCliActionPerformed
     int id = Integer.parseInt(txtId.getText());
-   
-   
+
     Cliente cli = new Cliente(id,"","","","");
     ClienteControle clicont = new ClienteControle();
     
         try {
             cli = clicont.buscarCliente(cli);
+            
+            txtNomeC.setText(cli.getNome());
+            txtSexoC.setText(cli.getSexo());
+            txtDatanasC.setText(cli.getDatanas());
+            txtCpfC.setText(cli.getCpf());
+            
+            JOptionPane.showMessageDialog(null,"BUSCA REALIZADA");
+            
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        JOptionPane.showMessageDialog(null,"BUSCA REALIZADA");
-        
-        txtNome.setText(cli.getNome());
-        txtSexo.setText(cli.getSexo());
-        txtDatanas.setText(cli.getDatanas());
-        txtCpf.setText(cli.getCpf());
+      
     }//GEN-LAST:event_btnBuscarCliActionPerformed
 
     private void menuCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadCliActionPerformed
@@ -341,15 +342,34 @@ public class ConsultarCliente extends javax.swing.JFrame {
 
     private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
     int id = Integer.parseInt(txtId.getText());
-    String nome = txtNome.getText();
-    String sexo = txtSexo.getText();
-    String datanas = txtDatanas.getText();
-    String cpf = txtCpf.getText();
+    String nome = txtNomeC.getText();
+    String sexo = txtSexoC.getText();
+    String datanas = txtDatanasC.getText();
+    String cpf = txtCpfC.getText();
     
     Cliente cli = new Cliente(id,nome,sexo,datanas,cpf);
     ClienteControle cliCont = new ClienteControle();
         try {
             cli  = cliCont.alterarCliente(cli);
+            JOptionPane.showMessageDialog(null,"CLIENTE ALTERADO");
+             int ida = Integer.parseInt(txtId.getText());
+
+    cli = new Cliente(ida,"","","","");
+    ClienteControle clicont;
+    clicont = new ClienteControle();
+    
+        try {
+            cli = clicont.buscarCliente(cli);
+            
+            txtNomeC.setText(cli.getNome());
+            txtSexoC.setText(cli.getSexo());
+            txtDatanasC.setText(cli.getDatanas());
+            txtCpfC.setText(cli.getCpf());
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -357,39 +377,96 @@ public class ConsultarCliente extends javax.swing.JFrame {
 
     private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
     int id = Integer.parseInt(txtId.getText());
-    
+    int ide = id-1;
     Cliente cli = new Cliente(id,"","","","");
     ClienteControle cliCont = new ClienteControle();
         try {
-            cli = cliCont.excluirCliente(cli);
+        
+        cli = cliCont.excluirCliente(cli);
+        JOptionPane.showMessageDialog(null,"EXCLUSÃO REALIZADA");
+        
+        cli = new Cliente(ide,"","","","");
+        
+        ClienteControle clicont = new ClienteControle();
+    
+        try {
+            cli = clicont.buscarCliente(cli);
+            txtId.setText(Integer.toString(ide));
+            txtNomeC.setText(cli.getNome());
+            txtSexoC.setText(cli.getSexo());
+            txtDatanasC.setText(cli.getDatanas());
+            txtCpfC.setText(cli.getCpf());
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
     private void menuAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlterarActionPerformed
-    int id = Integer.parseInt(txtId.getText());
-    String nome = txtNome.getText();
-    String sexo = txtSexo.getText();
-    String datanas = txtDatanas.getText();
-    String cpf = txtCpf.getText();
+ int id = Integer.parseInt(txtId.getText());
+    String nome = txtNomeC.getText();
+    String sexo = txtSexoC.getText();
+    String datanas = txtDatanasC.getText();
+    String cpf = txtCpfC.getText();
     
     Cliente cli = new Cliente(id,nome,sexo,datanas,cpf);
     ClienteControle cliCont = new ClienteControle();
         try {
             cli  = cliCont.alterarCliente(cli);
+            JOptionPane.showMessageDialog(null,"CLIENTE ALTERADO");
+             int ida = Integer.parseInt(txtId.getText());
+
+    cli = new Cliente(ida,"","","","");
+    ClienteControle clicont;
+    clicont = new ClienteControle();
+    
+        try {
+            cli = clicont.buscarCliente(cli);
+            
+            txtNomeC.setText(cli.getNome());
+            txtSexoC.setText(cli.getSexo());
+            txtDatanasC.setText(cli.getDatanas());
+            txtCpfC.setText(cli.getCpf());
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuAlterarActionPerformed
 
     private void menuExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExcluirActionPerformed
-         int id = Integer.parseInt(txtId.getText());
-    
+    int id = Integer.parseInt(txtId.getText());
+    int ide = id-1;
     Cliente cli = new Cliente(id,"","","","");
     ClienteControle cliCont = new ClienteControle();
         try {
-            cli = cliCont.excluirCliente(cli);
+        
+        cli = cliCont.excluirCliente(cli);
+        JOptionPane.showMessageDialog(null,"EXCLUSÃO REALIZADA");
+        
+        cli = new Cliente(ide,"","","","");
+        
+        ClienteControle clicont = new ClienteControle();
+    
+        try {
+            cli = clicont.buscarCliente(cli);
+            txtId.setText(Integer.toString(ide));
+            txtNomeC.setText(cli.getNome());
+            txtSexoC.setText(cli.getSexo());
+            txtDatanasC.setText(cli.getDatanas());
+            txtCpfC.setText(cli.getCpf());
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -458,10 +535,10 @@ public class ConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuExcluir;
     private javax.swing.JMenuItem menuHome;
     private javax.swing.JMenuItem menuLimpar;
-    private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtDatanas;
+    private javax.swing.JTextField txtCpfC;
+    private javax.swing.JTextField txtDatanasC;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSexo;
+    private javax.swing.JTextField txtNomeC;
+    private javax.swing.JTextField txtSexoC;
     // End of variables declaration//GEN-END:variables
 }

@@ -340,58 +340,134 @@ public class ConsultarQuarto extends javax.swing.JFrame {
     }//GEN-LAST:event_menuConQuaActionPerformed
 
     private void btnAlterarQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarQuaActionPerformed
-    int id = Integer.parseInt(txtCod.getText());
+    int cod = Integer.parseInt(txtCod.getText());
     String numero = txtNumero.getText();
     String tamanho = txtTamanho.getText();
     String andar = txtAndar.getText();
     String tipo = txtTipo.getText();
     
-    Quarto qua = new Quarto(id,numero,tamanho,andar,tipo);
-    QuartoControle cliCont = new QuartoControle();
+    Quarto qua = new Quarto(cod,numero,tamanho,andar,tipo);
+    QuartoControle quaCont = new QuartoControle();
         try {
-            qua  = cliCont.alterarQuarto(qua);
+            qua  = quaCont.alterarQuarto(qua);
+            JOptionPane.showMessageDialog(null,"QUARTO ALTERADO");
+             int coda = Integer.parseInt(txtCod.getText());
+
+    qua = new Quarto(coda,"","","","");
+    QuartoControle quacont;
+    quacont = new QuartoControle();
+    
+        try {
+            qua = quacont.buscarQuarto(qua);
+            
+            txtNumero.setText(qua.getNumero());
+            txtTamanho.setText(qua.getTamanho());
+            txtAndar.setText(qua.getAndar());
+            txtTipo.setText(qua.getTipo());
+            
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarQuarto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAlterarQuaActionPerformed
 
     private void btnExcluirQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirQuaActionPerformed
     int cod = Integer.parseInt(txtCod.getText());
-    
+    int code = cod-1;
     Quarto qua = new Quarto(cod,"","","","");
     QuartoControle quaCont = new QuartoControle();
         try {
-            qua = quaCont.excluirQuarto(qua);
+        
+        qua = quaCont.excluirQuarto(qua);
+        JOptionPane.showMessageDialog(null,"EXCLUSÃO REALIZADA");
+        
+        qua = new Quarto(code,"","","","");
+        
+        QuartoControle clicont = new QuartoControle();
+    
+        try {
+            qua = clicont.buscarQuarto(qua);
+            txtCod.setText(Integer.toString(code));
+            txtNumero.setText(qua.getNumero());
+            txtTamanho.setText(qua.getTamanho());
+            txtAndar.setText(qua.getAndar());
+            txtTipo.setText(qua.getTipo());
+            
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarQuarto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirQuaActionPerformed
 
     private void menuAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlterarActionPerformed
-    int id = Integer.parseInt(txtCod.getText());
+    int cod = Integer.parseInt(txtCod.getText());
     String numero = txtNumero.getText();
     String tamanho = txtTamanho.getText();
     String andar = txtAndar.getText();
     String tipo = txtTipo.getText();
     
-    Quarto qua = new Quarto(id,numero,tamanho,andar,tipo);
-    QuartoControle cliCont = new QuartoControle();
+    Quarto qua = new Quarto(cod,numero,tamanho,andar,tipo);
+    QuartoControle quaCont = new QuartoControle();
         try {
-            qua  = cliCont.alterarQuarto(qua);
+            qua  = quaCont.alterarQuarto(qua);
+            JOptionPane.showMessageDialog(null,"QUARTO ALTERADO");
+             int coda = Integer.parseInt(txtCod.getText());
+
+    qua = new Quarto(coda,"","","","");
+    QuartoControle quacont;
+    quacont = new QuartoControle();
+    
+        try {
+            qua = quacont.buscarQuarto(qua);
+            
+            txtNumero.setText(qua.getNumero());
+            txtTamanho.setText(qua.getTamanho());
+            txtAndar.setText(qua.getAndar());
+            txtTipo.setText(qua.getTipo());
+            
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarQuarto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuAlterarActionPerformed
 
     private void menuExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExcluirActionPerformed
-     int cod = Integer.parseInt(txtCod.getText());
-    
+    int cod = Integer.parseInt(txtCod.getText());
+    int code = cod-1;
     Quarto qua = new Quarto(cod,"","","","");
     QuartoControle quaCont = new QuartoControle();
         try {
-            qua = quaCont.excluirQuarto(qua);
+        
+        qua = quaCont.excluirQuarto(qua);
+        JOptionPane.showMessageDialog(null,"EXCLUSÃO REALIZADA");
+        
+        qua = new Quarto(code,"","","","");
+        
+        QuartoControle clicont = new QuartoControle();
+    
+        try {
+            qua = clicont.buscarQuarto(qua);
+            txtCod.setText(Integer.toString(code));
+            txtNumero.setText(qua.getNumero());
+            txtTamanho.setText(qua.getTamanho());
+            txtAndar.setText(qua.getAndar());
+            txtTipo.setText(qua.getTipo());
+            
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarQuarto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuExcluirActionPerformed
 

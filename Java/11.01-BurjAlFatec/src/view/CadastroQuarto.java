@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 public class CadastroQuarto extends javax.swing.JFrame {
 
     public CadastroQuarto() {
@@ -68,25 +69,59 @@ public class CadastroQuarto extends javax.swing.JFrame {
         setBackground(new java.awt.Color(153, 0, 153));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Numero");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 32, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 0));
         jLabel2.setForeground(new java.awt.Color(204, 204, 0));
         jLabel2.setText("Tamanho (m³)");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 78, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 0));
         jLabel3.setForeground(new java.awt.Color(204, 204, 0));
         jLabel3.setText("Andar");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 124, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 0));
         jLabel4.setForeground(new java.awt.Color(204, 204, 0));
         jLabel4.setText("Tipo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 170, -1, -1));
+
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 52, 166, -1));
+
+        txtTamanho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTamanhoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtTamanho, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 98, 166, -1));
+
+        txtAndar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAndarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAndar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 144, 166, -1));
+
+        txtTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 190, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 2, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 0));
         jLabel6.setText("Cadastro de Quarto");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 0, 170, -1));
 
         btnCadastrarQua.setBackground(new java.awt.Color(204, 153, 0));
         btnCadastrarQua.setText("Cadastrar");
@@ -95,6 +130,7 @@ public class CadastroQuarto extends javax.swing.JFrame {
                 btnCadastrarQuaActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCadastrarQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 172, -1));
 
         BtnLimpa.setBackground(new java.awt.Color(204, 153, 0));
         BtnLimpa.setText("Limpar");
@@ -104,53 +140,7 @@ public class CadastroQuarto extends javax.swing.JFrame {
                 BtnLimpaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtAndar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(btnCadastrarQua, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(BtnLimpa, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                        .addComponent(txtTipo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAndar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(BtnLimpa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarQua))
-        );
+        jPanel1.add(BtnLimpa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 170, -1));
 
         jButton1.setText("jButton1");
 
@@ -224,7 +214,7 @@ public class CadastroQuarto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,11 +273,12 @@ public class CadastroQuarto extends javax.swing.JFrame {
     
         try {
             qua = quacont.inserirQuarto(qua);
+            JOptionPane.showMessageDialog(null,"QUARTO CADASTRADO");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CadastroQuarto.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        JOptionPane.showMessageDialog(null,"CADASTRO REALIZADO, CÓDIGO DO QUARTO É: \n" + qua.getCod());
+        
     }//GEN-LAST:event_btnCadastrarQuaActionPerformed
 
     private void menuCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadCliActionPerformed
@@ -313,6 +304,22 @@ public class CadastroQuarto extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuConQuaActionPerformed
+
+    private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void txtTamanhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanhoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTamanhoActionPerformed
+
+    private void txtAndarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAndarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAndarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

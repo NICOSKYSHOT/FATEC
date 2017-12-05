@@ -16,7 +16,7 @@ public class QuartoDao {
     }
 
     public Quarto inseri(Quarto qua) throws SQLException{
-        String sql = "INSERT INTO quartos" + " (id, numero, tamanho, andar, tipo)" + " VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO quartos" + " (cod, numero, tamanho, andar, tipo)" + " VALUES (?,?,?,?,?)";
     
         try (PreparedStatement stmt = c.prepareStatement(sql)) {
             stmt.setInt(1,qua.getCod());

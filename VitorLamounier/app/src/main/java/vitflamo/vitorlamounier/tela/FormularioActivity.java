@@ -12,8 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import vitflamo.vitorlamounier.dao.AlunoDao;
-import vitflamo.vitorlamounier.modelo.Aluno;
+import vitflamo.vitorlamounier.dao.ClienteDao;
+import vitflamo.vitorlamounier.modelo.Cliente;
 
 import java.io.File;
 
@@ -48,10 +48,10 @@ public class FormularioActivity extends AppCompatActivity {
         });
 
         Intent intent = this.getIntent();
-        Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
-        if (aluno != null)
+        Cliente cliente = (Cliente) intent.getSerializableExtra("cliente");
+        if (cliente != null)
         {
-            helper.colocaNoFormulario(aluno);
+            helper.colocaNoFormulario(cliente);
         }
 
 
@@ -76,15 +76,15 @@ public class FormularioActivity extends AppCompatActivity {
 
 
 
-                Aluno aluno = helper.pegaAlunoDoFormulario();
-                AlunoDao dao = new AlunoDao(FormularioActivity.this);
-                if(aluno.getId() != null)
+                Cliente cliente = helper.pegaAlunoDoFormulario();
+                ClienteDao dao = new ClienteDao(FormularioActivity.this);
+                if(cliente.getId() != null)
                 {
-                    dao.alterar(aluno);
+                    dao.alterar(cliente);
                 }
                 else
                 {
-                    dao.insere(aluno);
+                    dao.insere(cliente);
                 }
                 dao.close();
 

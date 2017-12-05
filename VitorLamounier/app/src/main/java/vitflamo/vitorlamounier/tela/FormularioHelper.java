@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 
 
-import vitflamo.vitorlamounier.modelo.Aluno;
+import vitflamo.vitorlamounier.modelo.Cliente;
 
 /**
  * Created by android5908 on 06/04/16.
@@ -17,9 +17,8 @@ public class FormularioHelper {
     private EditText nome;
     private EditText telefone;
     private EditText site;
-    private SeekBar nota;
-    private  EditText endereco;
-    private Aluno aluno;
+    private EditText endereco;
+    private Cliente cliente;
 
     //Camera
     private ImageView foto;
@@ -31,9 +30,8 @@ public class FormularioHelper {
         this.nome = (EditText) activity.findViewById(R.id.nome);
         this.telefone = (EditText) activity.findViewById(R.id.phone);
         this.site = (EditText) activity.findViewById(R.id.site);
-        this.nota = (SeekBar) activity.findViewById(R.id.nota);
         this.endereco = (EditText) activity.findViewById(R.id.endereco);
-        this.aluno = new Aluno();
+        this.cliente = new Cliente();
 
 
         //camera
@@ -56,36 +54,34 @@ public class FormularioHelper {
         foto.setScaleType(ImageView.ScaleType.FIT_XY);
     }
 
-    public Aluno pegaAlunoDoFormulario()
+    public Cliente pegaAlunoDoFormulario()
 
     {
-        aluno.setNome(nome.getText().toString());
-        aluno.setEndereco(endereco.getText().toString());
-        aluno.setSite(site.getText().toString());
-        aluno.setTelefone(telefone.getText().toString());
-        aluno.setNota(Double.valueOf(nota.getProgress()));
+        cliente.setNome(nome.getText().toString());
+        cliente.setEndereco(endereco.getText().toString());
+        cliente.setSite(site.getText().toString());
+        cliente.setTelefone(telefone.getText().toString());
         //camera
-        aluno.setCaminhoFoto((String) foto.getTag());
-        return aluno;
+        cliente.setCaminhoFoto((String) foto.getTag());
+        return cliente;
     }
 
-    public void colocaNoFormulario (Aluno aluno)
+    public void colocaNoFormulario (Cliente cliente)
 
     {
 
-        nome.setText(aluno.getNome());
-        telefone.setText(aluno.getTelefone());
-        site.setText(aluno.getSite());
-        endereco.setText(aluno.getEndereco());
-        nota.setProgress(aluno.getNota().intValue()); //e diferente prk e RatingBar ou SeekBar
+        nome.setText(cliente.getNome());
+        telefone.setText(cliente.getTelefone());
+        site.setText(cliente.getSite());
+        endereco.setText(cliente.getEndereco());
 
-        this.aluno = aluno;
+        this.cliente = cliente;
 
         //camera
 
-        if (aluno.getCaminhoFoto() != null)
+        if (cliente.getCaminhoFoto() != null)
         {
-            this.carregaImagem(aluno.getCaminhoFoto());
+            this.carregaImagem(cliente.getCaminhoFoto());
         }
     }
 

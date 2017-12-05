@@ -16,24 +16,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import vitflamo.vitorlamounier.dao.AlunoDao;
-import vitflamo.vitorlamounier.modelo.Aluno;
+import vitflamo.vitorlamounier.dao.ClienteDao;
+import vitflamo.vitorlamounier.modelo.Cliente;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class ListaAlunosActivity extends AppCompatActivity {
+public class ListaClientesActivity extends AppCompatActivity {
     private ListView listaAlunos;
-    private List<Aluno> alunos;
+    private List<Cliente> clientes;
     private static final int TELEFONE_CODE_REQUEST = 10;
-    private  Aluno alunoSelecionado;
+    private Cliente clienteSelecionado;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_alunos);
+        setContentView(R.layout.activity_lista_clientes);
         listaAlunos = (ListView) findViewById(R.id.lista_alunos);
 
         Button botaoAdiciona = (Button) findViewById(R.id.lista_alunos_floating_button);
@@ -42,10 +42,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //toast
-                Toast.makeText(ListaAlunosActivity.this, "Floating button clicado", Toast.LENGTH_LONG).show();
+                Toast.makeText(ListaClientesActivity.this, "Floating button clicado", Toast.LENGTH_LONG).show();
 
                 //chamar entao o formularioActivity
-                Intent intent = new Intent(ListaAlunosActivity.this, FormularioActivity.class);
+                Intent intent = new Intent(ListaClientesActivity.this, FormularioActivity.class);
                 startActivity(intent);
 
             }
@@ -56,7 +56,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent edicao = new Intent(ListaAlunosActivity.this, FormularioActivity.class);
+                Intent edicao = new Intent(ListaClientesActivity.this, FormularioActivity.class);
                 edicao.putExtra("aluno", (Serializable) listaAlunos.getItemAtPosition(position));
                 startActivity(edicao);
             }
@@ -74,10 +74,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private void carregaLista() {
 
-        AlunoDao dao = new AlunoDao(this);
-        List<Aluno> alunos = dao.getLista();
+        ClienteDao dao = new ClienteDao(this);
+        List<Cliente> clientes = dao.getLista();
         dao.close();
-        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+        ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(this, android.R.layout.simple_list_item_1, clientes);
         this.listaAlunos.setAdapter(adapter);
     }
 
@@ -87,7 +87,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, view, menuInfo);
 
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        alunoSelecionado = (Aluno) listaAlunos.getAdapter().getItem(info.position);
+        clienteSelecionado = (Cliente) listaAlunos.getAdapter().getItem(info.position);
 
         //Ligar
         MenuItem ligar = menu.add("Ligar");
@@ -96,22 +96,22 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
                                              @Override
                                              public boolean onMenuItemClick(MenuItem item) {
-                                                 String permissaoLigacao = android.Manifest.permission.CALL_PHONE;
-                                                 if (ActivityCompat.checkSelfPermission(ListaAlunosActivity.this, permissaoLigacao) == PackageManager.PERMISSION_GRANTED) {
-                                                     fazerLigacao();
-                                                 } else {
-                                                     ActivityCompat.requestPermissions(ListaAlunosActivity.this, new String[]{permissaoLigacao}, TELEFONE_CODE_REQUEST);
-                                                 }
-                                                 return false;
-                                             }
-                                         }
+                 String permissaoLigacao = android.Manifest.permission.CALL_PHONE;
+                 if (ActivityCompat.checkSelfPermission(ListaClientesActivity.this, permissaoLigacao) == PackageManager.PERMISSION_GRANTED) {
+                     fazerLigacao();
+                 } else {
+                     ActivityCompat.requestPermissions(ListaClientesActivity.this, new String[]{permissaoLigacao}, TELEFONE_CODE_REQUEST);
+                 }
+                 return false;
+             }
+         }
         );
 
         //Enviar SMS
 
         MenuItem sms = menu.add("Enviar SMS");
         Intent intentSms = new Intent(Intent.ACTION_VIEW);
-        intentSms.setData(Uri.parse("sms:" +alunoSelecionado.getTelefone()));
+        intentSms.setData(Uri.parse("sms:" + clienteSelecionado.getTelefone()));
         intentSms.putExtra("sms_body", "Mensagem");
         sms.setIntent(intentSms);
 
@@ -119,13 +119,13 @@ public class ListaAlunosActivity extends AppCompatActivity {
         //site
         MenuItem site = menu.add("Navegar no site");
         Intent intentSite = new Intent(Intent.ACTION_VIEW);
-        intentSite.setData(Uri.parse("http:" +alunoSelecionado.getSite()));
+        intentSite.setData(Uri.parse("http:" + clienteSelecionado.getSite()));
         site.setIntent(intentSite);
 
         //Mapa
         MenuItem mapa = menu.add("Achar o mapa");
         Intent intentMapa = new Intent(Intent.ACTION_VIEW);
-        intentMapa.setData(Uri.parse("geo:0.0?z=14&q=" + Uri.encode(alunoSelecionado.getEndereco())));
+        intentMapa.setData(Uri.parse("geo:0.0?z=14&q=" + Uri.encode(clienteSelecionado.getEndereco())));
         mapa.setIntent(intentMapa);
 
 
@@ -137,8 +137,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
 
                 //para deletar ca xta a acaoa do metodo
-                AlunoDao dao = new AlunoDao(ListaAlunosActivity.this);
-                dao.deletar(alunoSelecionado);
+                ClienteDao dao = new ClienteDao(ListaClientesActivity.this);
+                dao.deletar(clienteSelecionado);
                 dao.close();
                 carregaLista();
 
@@ -163,7 +163,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private void fazerLigacao() {
         Intent intentLigar = new Intent(Intent.ACTION_CALL);
-        intentLigar.setData(Uri.parse("tel:" + alunoSelecionado.getTelefone())); //CUIDADO O NOME DENTRO DE "" DEVE XTAR EM MINIUSCULA tel
+        intentLigar.setData(Uri.parse("tel:" + clienteSelecionado.getTelefone())); //CUIDADO O NOME DENTRO DE "" DEVE XTAR EM MINIUSCULA tel
         startActivity(intentLigar);
         //Este erro de startActivity nao tem problema
 

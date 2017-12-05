@@ -25,8 +25,8 @@ public class QuartoControle {
     }
     
     public Quarto excluirQuarto(Quarto qua) throws SQLException, ClassNotFoundException {
-        QuartoDao cliDao = new QuartoDao();
-        qua = cliDao.exclui(qua);
+        QuartoDao quaDao = new QuartoDao();
+        qua = quaDao.exclui(qua);
         return qua;
     }
     

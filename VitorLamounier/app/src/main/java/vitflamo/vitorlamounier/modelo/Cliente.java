@@ -9,13 +9,12 @@ import java.io.Serializable;
 /**
  * Created by android5908 on 06/04/16.
  */
-public class Aluno implements Serializable {
+public class Cliente implements Serializable {
 
     private String nome;
     private String telefone;
     private String endereco;
     private String site;
-    private Double nota;
     private Long id;
 
     //camera
@@ -51,14 +50,6 @@ public class Aluno implements Serializable {
 
     public void setSite(String site) {
         this.site = site;
-    }
-
-    public Double getNota() {
-        return nota;
-    }
-
-    public void setNota(Double nota) {
-        this.nota = nota;
     }
 
     public Long getId() {
